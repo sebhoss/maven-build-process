@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This file is part of maven-build-process. It is subject to the license terms in the LICENSE file found in the top-level
+    directory of this distribution and at http://creativecommons.org/publicdomain/zero/1.0/. No part of maven-build-process,
+    including this file, may be copied, modified, propagated, or distributed except according to the terms contained
+    in the LICENSE file.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <parent>
+    <groupId>com.github.sebhoss.maven.bom</groupId>
+    <artifactId>maven-boms</artifactId>
+    <version>0.0.0-SNAPSHOT</version>
+  </parent>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <artifactId>maven-boms-sebhoss</artifactId>
+  <packaging>pom</packaging>
+  <name>Maven BOMs :: sebhoss</name>
+  <description>Dependencies declared by Sebastian Hoß</description>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                PROPERTIES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <properties>
+    <version.null-analysis>[2.0.0,3.0.0)</version.null-analysis>
+    <version.supress-warnings>[2.0.0,3.0.0)</version.supress-warnings>
+    <version.fiscal-year>[1.0.0,2.0.0)</version.fiscal-year>
+    <version.datasets>[1.0.0,2.0.0)</version.datasets>
+    <version.reguloj>[3.0.0,4.0.0)</version.reguloj>
+    <version.generic-types>[1.0.0,2.0.0)</version.generic-types>
+    <version.storage-units>[2.0.0,3.0.0)</version.storage-units>
+    <version.finj>[2.0.0,3.0.0)</version.finj>
+    <version.bc-clj>[2.0.0,3.0.0)</version.bc-clj>
+    <version.math-clj>[1.0.0,2.0.0)</version.math-clj>
+    <version.def-clj>[1.0.0,2.0.0)</version.def-clj>
+    <version.bootstrap-clj>[2.0.0,3.0.0)</version.bootstrap-clj>
+  </properties>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               DEPENDENCIES                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- Java Projects -->
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>null-analysis</artifactId>
+        <version>${version.null-analysis}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>suppress-warnings</artifactId>
+        <version>${version.supress-warnings}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>fiscal-year</artifactId>
+        <version>${version.fiscal-year}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>datasets</artifactId>
+        <version>${version.datasets}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>reguloj</artifactId>
+        <version>${version.reguloj}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss.utils</groupId>
+        <artifactId>generic-types</artifactId>
+        <version>${version.generic-types}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>storage-units</artifactId>
+        <version>${version.storage-units}</version>
+      </dependency>
+
+      <!-- Clojure Projects -->
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>finj</artifactId>
+        <version>${version.finj}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>bc-clj</artifactId>
+        <version>${version.bc-clj}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>math-clj</artifactId>
+        <version>${version.math-clj}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>def-clj</artifactId>
+        <version>${version.def-clj}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.sebhoss</groupId>
+        <artifactId>bootstrap-clj</artifactId>
+        <version>${version.bootstrap-clj}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>

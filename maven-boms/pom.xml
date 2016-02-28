@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.github.sebhoss.maven</groupId>
+    <artifactId>maven-build-process</artifactId>
+    <version>0.0.0-SNAPSHOT</version>
+  </parent>
+
+   <groupId>com.github.sebhoss.maven.bom</groupId>
+  <artifactId>maven-boms</artifactId>
+  <packaging>pom</packaging>
+  <name>Maven BOMs</name>
+  <description>Aggregator project for all Maven based BOMs</description>
+
+  <modules>
+  	<module>maven-boms-all</module>
+  	<module>maven-boms-testing</module>
+  	<module>maven-boms-sebhoss</module>
+  </modules>
+
+</project>
