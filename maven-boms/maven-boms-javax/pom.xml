@@ -22,17 +22,21 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-javax</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Java Extensions</name>
+  <description>Java Extensions related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.inject>1</version.inject>
+    <version.cdi-api>1.2</version.cdi-api>
+    <version.interceptor-api>1.2</version.interceptor-api>
+    <version.jta>1.1</version.jta>
+    <version.el-api>3.0.0</version.el-api>
+    <version.glassfish.javax.el>3.0.0</version.glassfish.javax.el>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +44,49 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- JSR 303 -->
+      <!-- https://jcp.org/en/jsr/detail?id=330 -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>${version.inject}</version>
       </dependency>
 
-      <!-- internally managed -->
+      <!-- JSR 299 -->
+      <!-- https://jcp.org/en/jsr/detail?id=299 -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <version>${version.cdi-api}</version>
+      </dependency>
+
+      <!-- JSR 318 (Interceptors) -->
+      <!-- https://jcp.org/en/jsr/detail?id=318 -->
+      <dependency>
+        <groupId>javax.interceptor</groupId>
+        <artifactId>javax.interceptor-api</artifactId>
+        <version>${version.interceptor-api}</version>
+      </dependency>
+
+      <!-- JSR 907 -->
+      <!-- https://jcp.org/en/jsr/detail?id=907 -->
+      <dependency>
+        <groupId>javax.transaction</groupId>
+        <artifactId>jta</artifactId>
+        <version>${version.jta}</version>
+      </dependency>
+
+      <!-- JSR 341 -->
+      <!-- https://www.jcp.org/en/jsr/detail?id=341 -->
+      <dependency>
+        <groupId>javax.el</groupId>
+        <artifactId>javax.el-api</artifactId>
+        <version>${version.el-api}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>${version.glassfish.javax.el}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

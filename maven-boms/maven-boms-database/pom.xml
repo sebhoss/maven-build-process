@@ -22,17 +22,18 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-database</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Database</name>
+  <description>Database related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.h2>1.4.191</version.h2>
+    <version.postgres>9.4-1207</version.postgres>
+    <version.mysql>5.1.38</version.mysql>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +41,28 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- H2 -->
+      <!-- http://h2database.com/ -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${version.h2}</version>
       </dependency>
 
-      <!-- internally managed -->
+      <!-- PostgreSQL -->
+      <!-- https://jdbc.postgresql.org/ -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${version.postgres}</version>
       </dependency>
+
+      <!-- MySQL -->
+      <!-- https://dev.mysql.com/downloads/connector/j/ -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${version.mysql}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

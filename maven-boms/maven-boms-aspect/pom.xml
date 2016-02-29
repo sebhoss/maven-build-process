@@ -22,17 +22,17 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-aspect</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Aspect</name>
+  <description>AOP related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.aopalliance>1.0</version.aopalliance>
+    <version.aspectjweaver>1.8.8</version.aspectjweaver>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +40,18 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- http://aopalliance.sourceforge.net/ -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>aopalliance</groupId>
+        <artifactId>aopalliance</artifactId>
+        <version>${version.aopalliance}</version>
       </dependency>
 
-      <!-- internally managed -->
+      <!-- http://www.eclipse.org/aspectj/ -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>${version.aspectjweaver}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

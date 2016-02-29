@@ -22,17 +22,20 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-maven</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Maven</name>
+  <description>Maven related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.maven>3.3.9</version.maven>
+    <version.maven-annotations>3.4</version.maven-annotations>
+    <version.maven-annotations>3.4</version.maven-annotations>
+    <version.plexus-annotations>1.6</version.plexus-annotations>
+    <version.doxia>1.6</version.doxia>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +43,54 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- Maven -->
+      <!-- http://maven.apache.org/ -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-core</artifactId>
+        <version>${version.maven}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-model</artifactId>
+        <version>${version.maven}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>${version.maven}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.plugin-tools</groupId>
+        <artifactId>maven-plugin-annotations</artifactId>
+        <version>${version.maven-annotations}</version>
       </dependency>
 
-      <!-- internally managed -->
+      <!-- Plexus -->
+      <!-- https://codehaus-plexus.github.io/ -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-component-annotations</artifactId>
+        <version>${version.plexus-annotations}</version>
+      </dependency>
+
+      <!-- Doxia -->
+      <!-- https://maven.apache.org/doxia/ -->
+      <dependency>
+        <groupId>org.apache.maven.doxia</groupId>
+        <artifactId>doxia-core</artifactId>
+        <version>${version.doxia}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.apache.maven.doxia</groupId>
+        <artifactId>doxia-sink-api</artifactId>
+        <version>${version.doxia}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.doxia</groupId>
+        <artifactId>doxia-core</artifactId>
+        <version>${version.doxia}</version>
+        <type>test-jar</type>
       </dependency>
     </dependencies>
   </dependencyManagement>

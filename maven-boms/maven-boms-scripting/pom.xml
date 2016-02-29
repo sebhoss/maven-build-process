@@ -22,17 +22,19 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-scripting</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Scripting</name>
+  <description>Scripting (languages) related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.jexl>2.1.1</version.jexl>
+    <version.juel>2.2.7</version.juel>
+    <version.mvel>2.2.7.Final</version.mvel>
+    <version.ognl>3.1.2</version.ognl>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +42,41 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- JEXL -->
+      <!-- https://commons.apache.org/proper/commons-jexl/ -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-jexl</artifactId>
+        <version>${version.jexl}</version>
       </dependency>
 
-      <!-- internally managed -->
+      <!-- JUEL -->
+      <!-- http://juel.sourceforge.net/ -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>de.odysseus.juel</groupId>
+        <artifactId>juel-api</artifactId>
+        <version>${version.juel}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>de.odysseus.juel</groupId>
+        <artifactId>juel-impl</artifactId>
+        <version>${version.juel}</version>
+      </dependency>
+
+      <!-- MVEL -->
+      <!-- https://github.com/mvel/mvel -->
+      <dependency>
+        <groupId>org.mvel</groupId>
+        <artifactId>mvel2</artifactId>
+        <version>${version.mvel}</version>
+      </dependency>
+
+      <!-- OGNL -->
+      <!-- https://commons.apache.org/proper/commons-ognl/ -->
+      <dependency>
+        <groupId>ognl</groupId>
+        <artifactId>ognl</artifactId>
+        <version>${version.ognl}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

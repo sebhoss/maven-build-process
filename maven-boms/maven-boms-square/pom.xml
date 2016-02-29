@@ -22,17 +22,17 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-square</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Square</name>
+  <description>Square related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.okhttp>2.7.3</version.okhttp>
+    <version.javapoet>1.5.1</version.javapoet>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +40,55 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- OkHttp -->
+      <!-- https://square.github.io/okhttp/ -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>${version.okhttp}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okhttp-apache</artifactId>
+        <version>${version.okhttp}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okhttp-android-support</artifactId>
+        <version>${version.okhttp}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okhttp-urlconnection</artifactId>
+        <version>${version.okhttp}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okhttp-mockwebserver</artifactId>
+        <version>${version.okhttp}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okhttp-ws</artifactId>
+        <version>${version.okhttp}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okhttp-testing-support</artifactId>
+        <version>${version.okhttp}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp</groupId>
+        <artifactId>okcurl</artifactId>
+        <version>${version.okhttp}</version>
       </dependency>
 
-      <!-- internally managed -->
+      <!-- JavaPoet -->
+      <!-- https://github.com/square/javapoet -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>com.squareup</groupId>
+        <artifactId>javapoet</artifactId>
+        <version>${version.javapoet}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

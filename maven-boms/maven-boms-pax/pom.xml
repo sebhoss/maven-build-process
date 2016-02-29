@@ -22,17 +22,16 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-pax</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Pax</name>
+  <description>OPS4J Pax related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.pax.exam>4.8.0</version.pax.exam>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +39,52 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- Pax Exam -->
+      <!-- https://ops4j1.jira.com/wiki/display/paxexam4/ -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam</artifactId>
+        <version>${version.pax.exam}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-
-      <!-- internally managed -->
-      <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-container-openwebbeans</artifactId>
+        <version>${version.pax.exam}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-container-weld</artifactId>
+        <version>${version.pax.exam}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-container-glassfish-embedded</artifactId>
+        <version>${version.pax.exam}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-container-karaf</artifactId>
+        <version>${version.pax.exam}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-inject</artifactId>
+        <version>${version.pax.exam}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-spring</artifactId>
+        <version>${version.pax.exam}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-cdi</artifactId>
+        <version>${version.pax.exam}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-junit4</artifactId>
+        <version>${version.pax.exam}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

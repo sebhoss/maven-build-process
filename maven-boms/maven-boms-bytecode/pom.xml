@@ -22,17 +22,19 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-boms-all</artifactId>
+  <artifactId>maven-boms-bytecode</artifactId>
   <packaging>pom</packaging>
-  <name>Maven BOMs :: All</name>
-  <description>Includes all other BOMs</description>
+  <name>Maven BOMs :: Bytecode</name>
+  <description>JVM Bytecode related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <properties>
-    <version.spring>4.2.5.RELEASE</version.spring>
-    <version.spring.integration>4.2.5.RELEASE</version.spring.integration>
+    <version.asm>5.0.4</version.asm>
+    <version.byte-buddy>1.2.3</version.byte-buddy>
+    <version.byteman>3.0.4</version.byteman>
+    <version.javassist>3.20.0-GA</version.javassist>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -40,36 +42,56 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <dependencyManagement>
     <dependencies>
-      <!-- externally managed -->
+      <!-- ASM -->
+      <!-- http://asm.ow2.org/ -->
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>${version.spring}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-bom</artifactId>
-        <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.ow2.asm</groupId>
+        <artifactId>asm</artifactId>
+        <version>${version.asm}</version>
       </dependency>
 
-      <!-- internally managed -->
+      <!-- Byte Buddy -->
+      <!-- http://bytebuddy.net/ -->
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-sebhoss</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>net.bytebuddy</groupId>
+        <artifactId>byte-buddy</artifactId>
+        <version>${version.byte-buddy}</version>
+      </dependency>
+
+      <!-- Byteman -->
+      <!-- http://byteman.jboss.org/ -->
+      <dependency>
+        <groupId>org.jboss.byteman</groupId>
+        <artifactId>byteman</artifactId>
+        <version>${version.byteman}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss.maven.bom</groupId>
-        <artifactId>maven-boms-testing</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <groupId>org.jboss.byteman</groupId>
+        <artifactId>byteman-dtest</artifactId>
+        <version>${version.byteman}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.byteman</groupId>
+        <artifactId>byteman-bmunit</artifactId>
+        <version>${version.byteman}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.byteman</groupId>
+        <artifactId>byteman-install</artifactId>
+        <version>${version.byteman}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.byteman</groupId>
+        <artifactId>byteman-submit</artifactId>
+        <version>${version.byteman}</version>
+      </dependency>
+
+      <!-- Javassist -->
+      <!-- https://jboss-javassist.github.io/javassist/ -->
+      <dependency>
+        <groupId>org.javassist</groupId>
+        <artifactId>javassist</artifactId>
+        <version>${version.javassist}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
