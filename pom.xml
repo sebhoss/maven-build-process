@@ -25,6 +25,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                 MODULES                                 -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Aggregation -->
   <modules>
     <module>maven-boms</module>
     <module>maven-parents</module>
@@ -37,25 +38,100 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
+    <!-- 'global' settings -->
     <global.encoding>UTF-8</global.encoding>
 
+    <!-- project settings -->
     <project.build.sourceEncoding>${global.encoding}</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${global.encoding}</project.reporting.outputEncoding>
 
+    <!-- version declarations -->
+    <version.sonar-m-p>3.0.1</version.sonar-m-p>
     <version.m-gpg-p>1.6</version.m-gpg-p>
     <version.nexus-stagig-m-p>1.6.6</version.nexus-stagig-m-p>
   </properties>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                   BUILD                                 -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <build>
+    <!-- https://maven.apache.org/pom.html#Plugin_Management -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.sonarsource.scanner.maven</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>${version.sonar-m-p}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${version.m-gpg-p}</version>
+          <configuration>
+            <executable>gpg2</executable>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${version.nexus-stagig-m-p}</version>
+          <configuration>
+            <!-- make sure that you have an appropriate entry in your settings.xml -->
+            <serverId>sonatype-nexus-staging</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <!-- https://maven.apache.org/pom.html#Plugins -->
+    <plugins>
+      <plugin>
+        <!-- https://maven.apache.org/enforcer/maven-enforcer-plugin/ -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.4.1</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.semver</groupId>
+            <artifactId>enforcer-rule</artifactId>
+            <version>0.9.33</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>check</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireSemanticVersioningConformance implementation="org.semver.enforcer.RequireSemanticVersioningConformance" />
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <!-- https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin -->
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
   </build>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
   <name>Maven Build Process</name>
   <description>Resources &amp; configuration for the Maven based build process used by Sebastian Hoß</description>
   <url>http://seb.hoß.de/maven-build-process</url>
@@ -128,7 +204,7 @@
     </site>
     <snapshotRepository>
       <!-- http://central.sonatype.org/pages/apache-maven.html -->
-      <id>ossrh</id>
+      <id>sonatype-nexus-staging</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
