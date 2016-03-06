@@ -19,6 +19,10 @@
   <version>0.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Inheritance -->
   <!-- <parent></parent> -->
   <dependencyManagement></dependencyManagement>
 
@@ -27,12 +31,12 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Aggregation -->
   <modules>
-    <module>maven-boms</module>
-    <module>maven-parents</module>
     <module>maven-archetypes</module>
+    <module>maven-boms</module>
+    <module>maven-extensions</module>
+    <module>maven-parents</module>
     <module>maven-plugins</module>
     <module>maven-resources</module>
-    <module>maven-extensions</module>
   </modules>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
