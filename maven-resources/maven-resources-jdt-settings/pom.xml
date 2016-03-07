@@ -11,14 +11,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                               COORDINATES                               -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <artifactId>maven-resources-jdt-settings</artifactId>
-  <packaging>pom</packaging>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                 PARENT                                  -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
     <groupId>com.github.sebhoss.maven</groupId>
     <artifactId>maven-resources</artifactId>
@@ -26,34 +21,55 @@
   </parent>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               COORDINATES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
+  <artifactId>maven-resources-jdt-settings</artifactId>
+  <packaging>pom</packaging>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Resources :: JDT Settings</name>
+  <description>Resource bundle with JDT settings</description>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                PROPERTIES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Properties -->
+  <properties>
+    <!-- version declarations -->
+    <version.m-remote-resources-p>1.5</version.m-remote-resources-p>
+  </properties>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                   BUILD                                 -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
   <build>
     <plugins>
       <plugin>
+        <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/ -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-remote-resources-plugin</artifactId>
-        <version>1.5</version>
+        <version>${version.m-remote-resources-p}</version>
         <executions>
           <execution>
             <goals>
+              <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/bundle-mojo.html -->
               <goal>bundle</goal>
             </goals>
           </execution>
         </executions>
         <configuration>
          <includes>
+           <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/bundle-mojo.html#includes -->
            <include>**/*.prefs</include>
          </includes>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                               INFORMATIONS                              -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <name>Maven Resources :: JDT Settings</name>
-  <description>Resource bundle with JDT settings</description>
 
 </project>

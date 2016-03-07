@@ -10,6 +10,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- ordering follows https://maven.apache.org/developers/conventions/code.html#POM_Code_Convention -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Inheritance -->
+  <!-- <parent></parent> -->
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -20,11 +28,71 @@
   <packaging>pom</packaging>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                 PARENT                                  -->
+  <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Inheritance -->
-  <!-- <parent></parent> -->
-  <dependencyManagement></dependencyManagement>
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Build Process</name>
+  <description>Resources &amp; configuration for the Maven based build process used by Sebastian Hoß</description>
+  <url>http://seb.hoß.de/maven-build-process</url>
+  <inceptionYear>2016</inceptionYear>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               ORGANIZATION                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Organization -->
+  <organization>
+    <name>sebhoss</name>
+  </organization>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 LICENSE                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Licenses -->
+  <licenses>
+    <license>
+      <name>Creative Commons Zero</name>
+      <url>http://creativecommons.org/publicdomain/zero/1.0/legalcode.txt</url>
+      <distribution>repo</distribution>
+      <comments>http://creativecommons.org/publicdomain/zero/1.0/</comments>
+    </license>
+  </licenses>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                DEVELOPERS                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Developers -->
+  <developers>
+    <developer>
+      <id>sebhoss</id>
+      <name>Sebastian Hoß</name>
+      <email>mail@shoss.de</email>
+      <url>http://seb.hoß.de/</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+  </developers>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               CONTRIBUTORS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Contributors -->
+  <contributors></contributors>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               MAILING LISTS                             -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Mailing_Lists -->
+  <mailingLists></mailingLists>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               PREREQUISITES                             -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Prerequisites -->
+  <prerequisites>
+    <maven>3.3.9</maven>
+  </prerequisites>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                 MODULES                                 -->
@@ -38,6 +106,52 @@
     <module>maven-plugins</module>
     <module>maven-resources</module>
   </modules>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                    SCM                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#SCM -->
+  <scm>
+    <connection>scm:git:git://github.com/sebhoss/maven-build-process.git</connection>
+    <developerConnection>scm:git:git@github.com:sebhoss/maven-build-process.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/sebhoss/maven-build-process</url>
+  </scm>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                             ISSUE MANAGEMENT                            -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Issue_Management -->
+  <issueManagement>
+    <system>GitHub</system>
+    <url>${project.url}/issues</url>
+  </issueManagement>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               CI MANAGEMENT                             -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Continuous_Integration_Management -->
+  <ciManagement>
+    <system>Travis-CI</system>
+    <url>https://travis-ci.org/${project.organization.name}/${project.artifactId}</url>
+  </ciManagement>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                          DISTRIBUTION MANAGEMENT                        -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Distribution_Management -->
+  <distributionManagement>
+    <site>
+      <id>github</id>
+      <name>GitHub Pages</name>
+      <url>${project.url}</url>
+    </site>
+    <snapshotRepository>
+      <!-- http://central.sonatype.org/pages/apache-maven.html -->
+      <id>sonatype-nexus-staging</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
@@ -55,31 +169,57 @@
     <version.sonar-m-p>3.0.1</version.sonar-m-p>
     <version.m-gpg-p>1.6</version.m-gpg-p>
     <version.nexus-stagig-m-p>1.6.6</version.nexus-stagig-m-p>
+    <version.m-enforcer-p>1.4.1</version.m-enforcer-p>
+
+    <!-- plugin settings -->
+    <!-- https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#executable -->
+    <gpg.executable>gpg2</gpg.executable>
+    <!-- http://sonarsource.github.io/sonar-maven/sonar-mojo.html#skip -->
+    <sonar.skip>false</sonar.skip>
   </properties>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                            DEPENDENCY MANAGEMENT                        -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Dependency_Management -->
+  <dependencyManagement></dependencyManagement>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                            DEPENDENCY MANAGEMENT                        -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Dependencies -->
+  <dependencies></dependencies>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                   BUILD                                 -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
   <build>
     <!-- https://maven.apache.org/pom.html#Plugin_Management -->
     <pluginManagement>
       <plugins>
         <plugin>
+          <!-- http://sonarsource.github.io/sonar-maven/ -->
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
           <version>${version.sonar-m-p}</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>${version.m-gpg-p}</version>
           <configuration>
-            <executable>gpg2</executable>
+            <skip>${sonar.skip}</skip>
           </configuration>
         </plugin>
 
         <plugin>
+          <!-- https://maven.apache.org/plugins/maven-gpg-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${version.m-gpg-p}</version>
+          <configuration>
+            <executable>${gpg.executable}</executable>
+          </configuration>
+        </plugin>
+
+        <plugin>
+           <!-- https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin -->
           <groupId>org.sonatype.plugins</groupId>
           <artifactId>nexus-staging-maven-plugin</artifactId>
           <version>${version.nexus-stagig-m-p}</version>
@@ -99,7 +239,7 @@
         <!-- https://maven.apache.org/enforcer/maven-enforcer-plugin/ -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.4.1</version>
+        <version>${version.m-enforcer-p}</version>
         <dependencies>
           <dependency>
             <groupId>org.semver</groupId>
@@ -131,86 +271,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                               INFORMATIONS                              -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
-  <name>Maven Build Process</name>
-  <description>Resources &amp; configuration for the Maven based build process used by Sebastian Hoß</description>
-  <url>http://seb.hoß.de/maven-build-process</url>
-  <inceptionYear>2016</inceptionYear>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                 LICENSE                                 -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Licenses -->
-  <licenses>
-    <license>
-      <name>Creative Commons Zero</name>
-      <url>http://creativecommons.org/publicdomain/zero/1.0/legalcode.txt</url>
-      <distribution>repo</distribution>
-      <comments>http://creativecommons.org/publicdomain/zero/1.0/</comments>
-    </license>
-  </licenses>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                               ORGANIZATION                              -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Organization -->
-  <organization>
-    <name>sebhoss</name>
-  </organization>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                DEVELOPERS                               -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Developers -->
-  <developers>
-    <developer>
-      <id>sebhoss</id>
-      <name>Sebastian Hoß</name>
-      <email>mail@shoss.de</email>
-      <url>http://seb.hoß.de/</url>
-      <roles>
-        <role>Developer</role>
-      </roles>
-      <timezone>Europe/Berlin</timezone>
-    </developer>
-  </developers>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                  SOURCE                                 -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <scm>
-    <connection>scm:git:git://github.com/sebhoss/maven-build-process.git</connection>
-    <developerConnection>scm:git:git@github.com:sebhoss/maven-build-process.git</developerConnection>
-    <tag>HEAD</tag>
-    <url>https://github.com/sebhoss/maven-build-process</url>
-  </scm>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                               PREREQUISITES                             -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Prerequisites -->
-  <prerequisites>
-    <maven>3.3.9</maven>
-  </prerequisites>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                           DISTRIBUTION MANAGEMENT                       -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <distributionManagement>
-    <site>
-      <id>github</id>
-      <name>GitHub Pages</name>
-      <url>${project.url}</url>
-    </site>
-    <snapshotRepository>
-      <!-- http://central.sonatype.org/pages/apache-maven.html -->
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
 
 </project>

@@ -23,14 +23,14 @@
     <module>maven-boms-google</module>
     <module>maven-boms-javax</module>
     <module>maven-boms-json</module>
+    <module>maven-boms-maven</module>
     <module>maven-boms-pax</module>
     <module>maven-boms-scripting</module>
     <module>maven-boms-sebhoss</module>
+    <module>maven-boms-square</module>
     <module>maven-boms-testing</module>
     <module>maven-boms-wikitext</module>
     <module>maven-boms-yaml</module>
-    <module>maven-boms-maven</module>
-    <module>maven-boms-square</module>
   </modules>
 
 </project>
