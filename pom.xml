@@ -78,13 +78,13 @@
   <!--                               CONTRIBUTORS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Contributors -->
-  <contributors></contributors>
+  <contributors/>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               MAILING LISTS                             -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Mailing_Lists -->
-  <mailingLists></mailingLists>
+  <mailingLists/>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               PREREQUISITES                             -->
@@ -182,13 +182,13 @@
   <!--                            DEPENDENCY MANAGEMENT                        -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Dependency_Management -->
-  <dependencyManagement></dependencyManagement>
+  <dependencyManagement/>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                            DEPENDENCY MANAGEMENT                        -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Dependencies -->
-  <dependencies></dependencies>
+  <dependencies/>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                   BUILD                                 -->
