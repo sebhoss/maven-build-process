@@ -1,0 +1,4 @@
+= Maven Build Process
+
+Bunch of POMs that help setting up a Mavenfootnote:[http://maven.apache.org/] based build process.
+
