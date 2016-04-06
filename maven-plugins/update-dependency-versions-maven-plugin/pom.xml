@@ -17,8 +17,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
+    <artifactId>maven-plugins</artifactId>
     <groupId>com.github.sebhoss.maven</groupId>
-    <artifactId>maven-build-process</artifactId>
     <version>0.0.0-SNAPSHOT</version>
   </parent>
 
@@ -26,23 +26,6 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
-  <artifactId>maven-plugins</artifactId>
-  <packaging>pom</packaging>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                               INFORMATIONS                              -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
-  <name>Maven Plugins</name>
-  <description>Aggregator project for Maven plugins</description>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                 MODULES                                 -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Aggregation -->
-  <modules>
-    <module>static-site-maven-plugin</module>
-    <module>update-dependency-versions-maven-plugin</module>
-  </modules>
+  <artifactId>update-dependency-versions-maven-plugin</artifactId>
 
 </project>
