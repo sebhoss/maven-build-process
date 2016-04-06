@@ -21,8 +21,16 @@
   <packaging>pom</packaging>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Parents :: Java :: Prototype</name>
+  <description>Maven Parent for prototypes</description>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <jacoco.lineCoverage>0.00000</jacoco.lineCoverage>
     <pit.mutationCoverage>0</pit.mutationCoverage>

@@ -29,4 +29,11 @@
   <artifactId>maven-parents-java-stable</artifactId>
   <packaging>pom</packaging>
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Parents :: Java :: Stable</name>
+  <description>Maven Parent for STABLE Java projects.</description>
+
 </project>

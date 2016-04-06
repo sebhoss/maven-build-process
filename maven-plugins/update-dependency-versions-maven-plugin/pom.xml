@@ -28,4 +28,11 @@
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
   <artifactId>update-dependency-versions-maven-plugin</artifactId>
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Plugins :: Update Dependencies</name>
+  <description>Maven plugin to dependencies of a project.</description>
+
 </project>
