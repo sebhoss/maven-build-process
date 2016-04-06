@@ -26,22 +26,13 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
-  <artifactId>maven-extensions</artifactId>
-  <packaging>pom</packaging>
+  <artifactId>github-maven-extension</artifactId>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#More_Project_Information -->
-  <name>Maven Extensions</name>
-  <description>Aggregator project for all Maven extensions</description>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                 MODULES                                 -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Aggregation -->
-  <modules>
-    <module>github-maven-extension</module>
-  </modules>
+  <name>Maven Extensions :: GitHub</name>
+  <description>Configures a Maven project on GitHub</description>
 
 </project>
