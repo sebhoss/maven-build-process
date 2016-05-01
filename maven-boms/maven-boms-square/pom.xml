@@ -41,8 +41,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.okhttp>2.7.3</version.okhttp>
-    <version.javapoet>1.5.1</version.javapoet>
+    <version.okhttp>2.7.5</version.okhttp>
+    <version.javapoet>1.7.0</version.javapoet>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -51,7 +51,7 @@
   <!-- https://maven.apache.org/pom.html#Dependency_Management -->
   <dependencyManagement>
     <dependencies>
-      <!-- OkHttp -->
+      <!-- OkHttp2 -->
       <!-- https://square.github.io/okhttp/ -->
       <dependency>
         <groupId>com.squareup.okhttp</groupId>

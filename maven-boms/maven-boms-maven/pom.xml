@@ -45,7 +45,7 @@
     <version.maven-annotations>3.4</version.maven-annotations>
     <version.maven-annotations>3.4</version.maven-annotations>
     <version.plexus-annotations>1.6</version.plexus-annotations>
-    <version.doxia>1.6</version.doxia>
+    <version.doxia>1.7</version.doxia>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

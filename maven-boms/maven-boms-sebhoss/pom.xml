@@ -42,8 +42,8 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <version.null-analysis>[2.0.0,3.0.0)</version.null-analysis>
-    <version.supress-warnings>[2.0.0,3.0.0)</version.supress-warnings>
-    <version.fiscal-year>[1.0.0,2.0.0)</version.fiscal-year>
+    <version.supress-warnings>[3.0.0,4.0.0)</version.supress-warnings>
+    <version.fiscal-year>[2.0.0,3.0.0)</version.fiscal-year>
     <version.datasets>[1.0.0,2.0.0)</version.datasets>
     <version.reguloj>[3.0.0,4.0.0)</version.reguloj>
     <version.generic-types>[1.0.0,2.0.0)</version.generic-types>

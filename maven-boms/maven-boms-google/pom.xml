@@ -41,7 +41,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.auto-value>1.1</version.auto-value>
+    <version.auto-value>1.2</version.auto-value>
     <version.guava>19.0</version.guava>
     <version.guice>4.0</version.guice>
     <version.truth>0.28</version.truth>
