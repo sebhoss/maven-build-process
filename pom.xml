@@ -24,7 +24,7 @@
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
   <groupId>com.github.sebhoss.maven</groupId>
   <artifactId>maven-build-process</artifactId>
-  <version>0.0.0-SNAPSHOT</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -105,6 +105,7 @@
     <module>maven-parents</module>
     <module>maven-plugins</module>
     <module>maven-resources</module>
+    <module>maven-mixins</module>
   </modules>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -159,6 +160,7 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <!-- 'global' settings -->
+    <revision>0.0.0-SNAPSHOT</revision>
     <global.encoding>UTF-8</global.encoding>
 
     <!-- project settings -->
@@ -197,6 +199,7 @@
   <build>
     <!-- https://maven.apache.org/pom.html#Plugin_Management -->
     <pluginManagement>
+      <!-- https://maven.apache.org/pom.html#Plugins -->
       <plugins>
         <plugin>
           <!-- http://sonarsource.github.io/sonar-maven/ -->
