@@ -37,7 +37,7 @@ sign-waiver:
 
 .PHONY: release
 release:
-    # TODO: gpg-agent
-    # TODO: ssh-agent
-    # TODO: mvn batch mode
+	# TODO: gpg-agent
+	# TODO: ssh-agent
+	# TODO: mvn batch mode
 	@mvn deploy scm:tag -Drevision=`(date +%Y.%m.%d)`
