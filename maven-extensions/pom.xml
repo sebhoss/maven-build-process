@@ -41,7 +41,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Aggregation -->
   <modules>
-    <module>github-maven-extension</module>
+    <module>maven-extensions-github</module>
   </modules>
 
 </project>
