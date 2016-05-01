@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This file is part of maven-build-process. It is subject to the license terms in the LICENSE file found in the top-level
+    directory of this distribution and at http://creativecommons.org/publicdomain/zero/1.0/. No part of maven-build-process,
+    including this file, may be copied, modified, propagated, or distributed except according to the terms contained
+    in the LICENSE file.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- ordering follows https://maven.apache.org/developers/conventions/code.html#POM_Code_Convention -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Inheritance -->
+  <parent>
+    <groupId>com.github.sebhoss.maven</groupId>
+    <artifactId>maven-mixins</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               COORDINATES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
+  <artifactId>maven-mixins-findbugs</artifactId>
+  <packaging>pom</packaging>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Mixins :: FindBugs</name>
+  <description>Prepares the build to use FindBugs</description>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                PROPERTIES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Properties -->
+  <properties>
+    <version.findbugs-m-p>3.0.3</version.findbugs-m-p>
+  </properties>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                   BUILD                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
+  <build>
+    <!-- https://maven.apache.org/pom.html#Plugin_Management -->
+    <pluginManagement>
+      <!-- https://maven.apache.org/pom.html#Plugins -->
+      <plugins>
+
+        <plugin>
+          <!-- http://gleclaire.github.io/findbugs-maven-plugin/ -->
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>${version.findbugs-m-p}</version>
+          <configuration>
+            <!-- http://gleclaire.github.io/findbugs-maven-plugin/check-mojo.html#effort -->
+            <effort>${findbugs.effort}</effort>
+            <!-- http://gleclaire.github.io/findbugs-maven-plugin/check-mojo.html#threshold -->
+            <threshold>${findbugs.threshold}</threshold>
+            <!-- http://gleclaire.github.io/findbugs-maven-plugin/check-mojo.html#skip -->
+            <skip>${findbugs.skip}</skip>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <!-- http://gleclaire.github.io/findbugs-maven-plugin/check-mojo.html -->
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

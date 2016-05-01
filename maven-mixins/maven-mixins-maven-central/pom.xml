@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This file is part of maven-build-process. It is subject to the license terms in the LICENSE file found in the top-level
+    directory of this distribution and at http://creativecommons.org/publicdomain/zero/1.0/. No part of maven-build-process,
+    including this file, may be copied, modified, propagated, or distributed except according to the terms contained
+    in the LICENSE file.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- ordering follows https://maven.apache.org/developers/conventions/code.html#POM_Code_Convention -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Inheritance -->
+  <parent>
+    <groupId>com.github.sebhoss.maven</groupId>
+    <artifactId>maven-mixins</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               COORDINATES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
+  <artifactId>maven-mixins-maven-central</artifactId>
+  <packaging>pom</packaging>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Mixins :: Maven Central</name>
+  <description>Prepares the build to deploy into Maven Central through Sonatype OSSRH</description>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                PROPERTIES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Properties -->
+  <properties>
+    <version.m-source-p>3.0.0</version.m-source-p>
+    <version.m-javadoc-p>2.10.3</version.m-javadoc-p>
+    <version.m-jar-p>2.6</version.m-jar-p>
+  </properties>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                   BUILD                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
+  <build>
+    <!-- https://maven.apache.org/pom.html#Plugin_Management -->
+    <pluginManagement>
+      <!-- https://maven.apache.org/pom.html#Plugins -->
+      <plugins>
+
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-source-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.m-source-p}</version>
+          <configuration>
+            <!-- https://maven.apache.org/plugins/maven-source-plugin/jar-no-fork-mojo.html#archive -->
+            <archive>
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            </archive>
+          </configuration>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>verify</phase>
+              <goals>
+                <!-- https://maven.apache.org/plugins/maven-source-plugin/jar-no-fork-mojo.html -->
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-javadoc-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${version.m-javadoc-p}</version>
+          <configuration>
+            <!-- https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#archive -->
+            <archive>
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            </archive>
+          </configuration>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <!-- https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html -->
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-jar-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${version.m-jar-p}</version>
+          <configuration>
+            <!-- https://maven.apache.org/plugins/maven-jar-plugin/jar-mojo.html#archive -->
+            <archive>
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            </archive>
+          </configuration>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

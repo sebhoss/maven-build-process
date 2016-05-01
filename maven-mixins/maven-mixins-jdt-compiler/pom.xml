@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This file is part of maven-build-process. It is subject to the license terms in the LICENSE file found in the top-level
+    directory of this distribution and at http://creativecommons.org/publicdomain/zero/1.0/. No part of maven-build-process,
+    including this file, may be copied, modified, propagated, or distributed except according to the terms contained
+    in the LICENSE file.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- ordering follows https://maven.apache.org/developers/conventions/code.html#POM_Code_Convention -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Inheritance -->
+  <parent>
+    <groupId>com.github.sebhoss.maven</groupId>
+    <artifactId>maven-mixins</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               COORDINATES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
+  <artifactId>maven-mixins-jdt-compiler</artifactId>
+  <packaging>pom</packaging>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Mixins :: JDT Compiler</name>
+  <description>Prepares the build to use the Eclipse JDT compiler</description>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                PROPERTIES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Properties -->
+  <properties>
+    <version.m-compiler-p>3.5.1</version.m-compiler-p>
+    <version.tycho-compiler-jdt>0.24.0</version.tycho-compiler-jdt>
+    <version.m-remote-resources-p>1.5</version.m-remote-resources-p>
+    <version.jdt-settings>2.0.0</version.jdt-settings>
+    <version.jdk>1.8</version.jdk>
+  </properties>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                   BUILD                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
+  <build>
+    <!-- https://maven.apache.org/pom.html#Plugin_Management -->
+    <pluginManagement>
+      <!-- https://maven.apache.org/pom.html#Plugins -->
+      <plugins>
+
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-compiler-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.m-compiler-p}</version>
+          <configuration>
+            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#source -->
+            <source>${version.jdk}</source>
+            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#target -->
+            <target>${version.jdk}</target>
+            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerId -->
+            <compilerId>jdt</compilerId>
+            <!-- https://eclipse.org/tycho/sitedocs/tycho-compiler-plugin/compile-mojo.html#useProjectSettings -->
+            <useProjectSettings>true</useProjectSettings>
+            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerArgument -->
+            <!-- https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javac.html -->
+            <compilerArgument>-parameters</compilerArgument>
+          </configuration>
+          <dependencies>
+            <!-- This dependency provides the implementation of compiler "jdt" -->
+            <dependency>
+              <!-- https://eclipse.org/tycho/sitedocs/ -->
+              <groupId>org.eclipse.tycho</groupId>
+              <artifactId>tycho-compiler-jdt</artifactId>
+              <version>${version.tycho-compiler-jdt}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-remote-resources-plugin</artifactId>
+          <version>${version.m-remote-resources-p}</version>
+          <executions>
+            <execution>
+              <id>jdt-settings</id>
+              <goals>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html -->
+                <goal>process</goal>
+              </goals>
+              <configuration>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#attachToMain -->
+                <attachToMain>false</attachToMain>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#attachToTest -->
+                <attachToTest>false</attachToTest>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#resourceBundles -->
+                <resourceBundles>
+                  <resourceBundle>com.github.sebhoss.maven:maven-resources-jdt-settings:${project.version}</resourceBundle>
+                </resourceBundles>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#outputDirectory -->
+                <outputDirectory>${project.basedir}/.settings</outputDirectory>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

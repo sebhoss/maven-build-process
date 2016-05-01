@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This file is part of maven-build-process. It is subject to the license terms in the LICENSE file found in the top-level
+    directory of this distribution and at http://creativecommons.org/publicdomain/zero/1.0/. No part of maven-build-process,
+    including this file, may be copied, modified, propagated, or distributed except according to the terms contained
+    in the LICENSE file.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- ordering follows https://maven.apache.org/developers/conventions/code.html#POM_Code_Convention -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Inheritance -->
+  <parent>
+    <groupId>com.github.sebhoss.maven</groupId>
+    <artifactId>maven-mixins</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               COORDINATES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
+  <artifactId>maven-mixins-pmd</artifactId>
+  <packaging>pom</packaging>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#More_Project_Information -->
+  <name>Maven Mixins :: PMD</name>
+  <description>Prepares the build to use PMD</description>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                PROPERTIES                               -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Properties -->
+  <properties>
+    <version.m-pmd-p>3.6</version.m-pmd-p>
+    <pmd.minimumTokens>50</pmd.minimumTokens>
+    <pmd.failurePriority>0</pmd.failurePriority>
+    <pmd.skip>false</pmd.skip>
+    <version.jdk>1.8</version.jdk>
+  </properties>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                   BUILD                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
+  <build>
+    <!-- https://maven.apache.org/pom.html#Plugin_Management -->
+    <pluginManagement>
+      <!-- https://maven.apache.org/pom.html#Plugins -->
+      <plugins>
+
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-pmd-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${version.m-pmd-p}</version>
+          <configuration>
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/check-mojo.html#failurePriority -->
+            <failurePriority>${pmd.failurePriority}</failurePriority>
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/cpd-mojo.html#minimumTokens -->
+            <minimumTokens>${pmd.minimumTokens}</minimumTokens>
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/pmd-mojo.html#targetJdk -->
+            <targetJdk>${version.jdk}</targetJdk>
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/check-mojo.html#skip -->
+            <skip>${pmd.skip}</skip>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <!-- https://maven.apache.org/plugins/maven-pmd-plugin/check-mojo.html -->
+                <goal>check</goal>
+                <!-- https://maven.apache.org/plugins/maven-pmd-plugin/cpd-check-mojo.html -->
+                <goal>cpd-check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
