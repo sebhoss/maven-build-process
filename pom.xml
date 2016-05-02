@@ -24,7 +24,7 @@
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
   <groupId>com.github.sebhoss.maven</groupId>
   <artifactId>maven-build-process</artifactId>
-  <version>${revision}</version>
+  <version>0.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -160,7 +160,6 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <!-- 'global' settings -->
-    <revision>0.0.0-SNAPSHOT</revision>
     <global.encoding>UTF-8</global.encoding>
 
     <!-- project settings -->
