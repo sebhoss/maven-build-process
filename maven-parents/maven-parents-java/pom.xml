@@ -81,7 +81,7 @@
     <version.m-surefire-report-p>2.19.1</version.m-surefire-report-p>
     <version.dependency-check-m>1.3.4</version.dependency-check-m>
 
-    <version.tycho-compiler-jdt>0.24.0</version.tycho-compiler-jdt>
+    <version.tycho-compiler-jdt>0.25.0</version.tycho-compiler-jdt>
     <version.jdt-settings>2.0.0</version.jdt-settings>
   </properties>
 

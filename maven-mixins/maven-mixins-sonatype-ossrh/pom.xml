@@ -41,8 +41,6 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.nexus-stagig-m-p>1.6.6</version.nexus-stagig-m-p>
-    <version.m-gpg-p>1.6</version.m-gpg-p>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
