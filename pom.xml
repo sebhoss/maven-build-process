@@ -150,7 +150,7 @@
     <snapshotRepository>
       <!-- http://central.sonatype.org/pages/apache-maven.html -->
       <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>${nexus-url}</url>
     </snapshotRepository>
   </distributionManagement>
 
