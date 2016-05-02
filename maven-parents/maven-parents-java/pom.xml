@@ -135,10 +135,10 @@
 
         <plugin>
           <!-- https://github.com/bndtools/bnd/blob/master/maven/bnd-maven-plugin/README.md -->
-		  <groupId>biz.aQute.bnd</groupId>
-		  <artifactId>bnd-maven-plugin</artifactId>
-		  <version>${version.bnd-m-p}</version>
-		  <executions>
+          <groupId>biz.aQute.bnd</groupId>
+          <artifactId>bnd-maven-plugin</artifactId>
+          <version>${version.bnd-m-p}</version>
+          <executions>
             <execution>
               <goals>
                 <goal>bnd-process</goal>
