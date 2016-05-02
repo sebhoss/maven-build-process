@@ -26,7 +26,7 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
-  <groupId>com.github.sebhoss.maven.bom</groupId>
+  <groupId>com.github.sebhoss.maven.boms</groupId>
   <artifactId>maven-boms</artifactId>
   <packaging>pom</packaging>
 
