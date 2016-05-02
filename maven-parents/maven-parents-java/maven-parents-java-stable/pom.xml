@@ -36,4 +36,38 @@
   <name>Maven Parents :: Java :: Stable</name>
   <description>Maven Parent for STABLE Java projects.</description>
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                   BUILD                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
+  <build>
+    <!-- https://maven.apache.org/pom.html#Plugins -->
+    <plugins>
+
+      <!-- http://gleclaire.github.io/findbugs-maven-plugin/ -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- http://eclemma.org/jacoco/trunk/doc/maven.html -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- http://pitest.org/quickstart/maven/ -->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+      </plugin>
+
+      <!-- https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html -->
+      <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+      </plugin>
+
+    </plugins>
+  </build>
 </project>

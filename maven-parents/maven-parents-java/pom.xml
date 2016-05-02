@@ -100,6 +100,10 @@
     </dependencies>
   </dependencyManagement>
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                   BUILD                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Build -->
   <build>
     <pluginManagement>
       <plugins>
@@ -249,6 +253,115 @@
                 <goal>check</goal>
                 <!-- https://maven.apache.org/plugins/maven-pmd-plugin/cpd-check-mojo.html -->
                 <goal>cpd-check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <!-- http://eclemma.org/jacoco/trunk/doc/maven.html -->
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${version.jacoco-m-p}</version>
+          <executions>
+            <execution>
+              <id>prepare-coverage-agent</id>
+              <goals>
+                <!-- http://eclemma.org/jacoco/trunk/doc/prepare-agent-mojo.html -->
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>check-coverage</id>
+              <goals>
+                <!-- http://eclemma.org/jacoco/trunk/doc/check-mojo.html -->
+                <goal>check</goal>
+              </goals>
+              <configuration>
+                <!-- http://eclemma.org/jacoco/trunk/doc/check-mojo.html#rules -->
+                <rules>
+                  <rule>
+                    <element>CLASS</element>
+                    <excludes>
+                      <exclude>*Test</exclude>
+                    </excludes>
+                    <limits>
+                      <limit>
+                        <counter>LINE</counter>
+                        <value>COVEREDRATIO</value>
+                        <minimum>${jacoco.lineCoverage}</minimum>
+                      </limit>
+                    </limits>
+                  </rule>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-remote-resources-plugin</artifactId>
+          <version>${version.m-remote-resources-p}</version>
+          <executions>
+            <execution>
+              <id>jdt-settings</id>
+              <goals>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html -->
+                <goal>process</goal>
+              </goals>
+              <configuration>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#attachToMain -->
+                <attachToMain>false</attachToMain>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#attachToTest -->
+                <attachToTest>false</attachToTest>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#resourceBundles -->
+                <resourceBundles>
+                  <resourceBundle>com.github.sebhoss:jdt-settings:${version.jdt-settings}</resourceBundle>
+                </resourceBundles>
+                <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#outputDirectory -->
+                <outputDirectory>${project.basedir}/.settings</outputDirectory>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <!-- http://pitest.org/quickstart/maven/ -->
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-maven</artifactId>
+          <version>${version.pittest-m-p}</version>
+          <configuration>
+            <threads>${pit.threads}</threads>
+            <mutationThreshold>${pit.mutationCoverage}</mutationThreshold>
+            <skip>${skipTests}</skip>
+            <targetClasses>
+              <param>com.github.sebhoss*</param>
+            </targetClasses>
+            <targetTests>
+              <param>com.github.sebhoss*</param>
+            </targetTests>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>mutationCoverage</goal>
+              </goals>
+              <phase>verify</phase>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <!-- https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html -->
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>${version.dependency-check-m}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
               </goals>
             </execution>
           </executions>
