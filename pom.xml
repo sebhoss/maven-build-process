@@ -145,7 +145,7 @@
     <site>
       <id>github</id>
       <name>GitHub Pages</name>
-      <url>${project.url}</url>
+      <url>http://seb.hoß.de/maven-build-process/</url>
     </site>
     <snapshotRepository>
       <!-- http://central.sonatype.org/pages/apache-maven.html -->
