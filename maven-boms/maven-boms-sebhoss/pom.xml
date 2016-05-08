@@ -63,64 +63,64 @@
     <dependencies>
       <!-- Java Projects -->
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>null-analysis</artifactId>
         <version>${version.null-analysis}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>suppress-warnings</artifactId>
         <version>${version.supress-warnings}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>fiscal-year</artifactId>
         <version>${version.fiscal-year}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>datasets</artifactId>
         <version>${version.datasets}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>reguloj</artifactId>
         <version>${version.reguloj}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia.utils</groupId>
+        <groupId>com.github.sebhoss.utils</groupId>
         <artifactId>generic-types</artifactId>
         <version>${version.generic-types}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>storage-units</artifactId>
         <version>${version.storage-units}</version>
       </dependency>
 
       <!-- Clojure Projects -->
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>finj</artifactId>
         <version>${version.finj}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>bc-clj</artifactId>
         <version>${version.bc-clj}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>math-clj</artifactId>
         <version>${version.math-clj}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>def-clj</artifactId>
         <version>${version.def-clj}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn__ho_hia</groupId>
+        <groupId>com.github.sebhoss</groupId>
         <artifactId>bootstrap-clj</artifactId>
         <version>${version.bootstrap-clj}</version>
       </dependency>
