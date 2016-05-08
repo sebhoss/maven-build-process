@@ -17,7 +17,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
-    <groupId>com.github.sebhoss.maven.parents</groupId>
+    <groupId>de.xn__ho_hia.maven.parents</groupId>
     <artifactId>maven-parents</artifactId>
     <version>0.0.0-SNAPSHOT</version>
   </parent>
@@ -91,7 +91,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.github.sebhoss.maven.boms</groupId>
+        <groupId>de.xn__ho_hia.maven.boms</groupId>
         <artifactId>maven-boms-all</artifactId>
         <version>0.0.0-SNAPSHOT</version>
         <type>pom</type>
@@ -318,7 +318,7 @@
                 <attachToTest>false</attachToTest>
                 <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#resourceBundles -->
                 <resourceBundles>
-                  <resourceBundle>com.github.sebhoss:jdt-settings:${version.jdt-settings}</resourceBundle>
+                  <resourceBundle>de.xn__ho_hia:jdt-settings:${version.jdt-settings}</resourceBundle>
                 </resourceBundles>
                 <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#outputDirectory -->
                 <outputDirectory>${project.basedir}/.settings</outputDirectory>
@@ -337,10 +337,10 @@
             <mutationThreshold>${pit.mutationCoverage}</mutationThreshold>
             <skip>${skipTests}</skip>
             <targetClasses>
-              <param>com.github.sebhoss*</param>
+              <param>de.xn__ho_hia*</param>
             </targetClasses>
             <targetTests>
-              <param>com.github.sebhoss*</param>
+              <param>de.xn__ho_hia*</param>
             </targetTests>
           </configuration>
           <executions>

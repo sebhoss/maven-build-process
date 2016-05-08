@@ -22,7 +22,7 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
-  <groupId>com.github.sebhoss.maven</groupId>
+  <groupId>de.xn__ho_hia.maven</groupId>
   <artifactId>maven-build-process</artifactId>
   <version>0.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -237,34 +237,6 @@
 
     <!-- https://maven.apache.org/pom.html#Plugins -->
     <plugins>
-      <plugin>
-        <!-- https://maven.apache.org/enforcer/maven-enforcer-plugin/ -->
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>${version.m-enforcer-p}</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.semver</groupId>
-            <artifactId>enforcer-rule</artifactId>
-            <version>0.9.33</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <id>check</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireSemanticVersioningConformance implementation="org.semver.enforcer.RequireSemanticVersioningConformance" />
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
       <plugin>
         <!-- https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin -->
         <groupId>org.sonatype.plugins</groupId>
