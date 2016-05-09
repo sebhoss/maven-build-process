@@ -24,6 +24,7 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
+  <groupId>de.xn__ho_hia.maven.resources</groupId>
   <artifactId>maven-resources</artifactId>
   <packaging>pom</packaging>
 
