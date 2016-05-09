@@ -98,6 +98,13 @@
       </dependency>
       <dependency>
         <groupId>de.xn__ho_hia.maven.boms</groupId>
+        <artifactId>maven-boms-eclipse</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>de.xn__ho_hia.maven.boms</groupId>
         <artifactId>maven-boms-google</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
