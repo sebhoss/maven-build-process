@@ -317,7 +317,7 @@
                 <attachToTest>false</attachToTest>
                 <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#resourceBundles -->
                 <resourceBundles>
-                  <resourceBundle>de.xn__ho_hia.maven.resources:maven-resources-jdt-settings:0.0.0-SNAPSHOT</resourceBundle>
+                  <resourceBundle>com.github.sebhoss:jdt-settings:2.0.0</resourceBundle>
                 </resourceBundles>
                 <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#outputDirectory -->
                 <outputDirectory>${project.basedir}/.settings</outputDirectory>
