@@ -36,10 +36,10 @@ sign-waiver:
 	@gpg2 --no-version --armor --sign AUTHORS/WAIVER
 
 .PHONY: release
-release:
+release-locally:
 	# TODO: gpg-agent
 	# TODO: ssh-agent
 	# TODO: mvn batch mode
 	@mvn versions:set -DnewVersion=`(date +%Y.%m.%d)` versions:commit
-	@mvn clean deploy scm:tag
+	@mvn clean deploy scm:tag -DskipLocalStaging=true
 	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
