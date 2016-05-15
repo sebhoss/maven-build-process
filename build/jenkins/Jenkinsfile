@@ -1,6 +1,6 @@
 node {
     stage "Checkout"
-    git "/var/git/prototypes/maven-build-process"
+    checkout scm
 
     stage "Tooling"
     def mvnHome = tool "maven-3.3.9"
