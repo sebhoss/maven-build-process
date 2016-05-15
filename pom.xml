@@ -152,6 +152,10 @@
       <id>${staging-id}</id>
       <url>${staging-url}</url>
     </snapshotRepository>
+    <repository>
+      <id>${release-id}</id>
+      <url>${release-url}</url>
+    </repository>
   </distributionManagement>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
