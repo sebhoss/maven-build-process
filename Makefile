@@ -1,3 +1,6 @@
+# https://www.gnu.org/prep/standards/html_node/Makefile-Basics.html#Makefile-Basics
+SHELL = /bin/sh
+
 .PHONY: all
 all: help
 
@@ -35,8 +38,16 @@ sonar-analysis:
 sign-waiver:
 	@gpg2 --no-version --armor --sign AUTHORS/WAIVER
 
+timestamp := $(shell /bin/date "+%Y.%m.%d-%H%M%S")
+
 .PHONY: release-into-local-nexus
 release-into-local-nexus:
-	@mvn versions:set -DnewVersion=`(date +%Y.%m.%d-%H%M%S)` versions:commit
-	@mvn clean deploy scm:tag -Dtag=maven-build-process-`(date +%Y.%m.%d-%H%M%S)` -DpushChanges=false -DskipLocalStaging=true
+	@mvn versions:set -DnewVersion=$(timestamp) versions:commit
+	@mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -DskipLocalStaging=true
+	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
+
+.PHONY: release-into-sonatype-nexus
+release-into-sonatype-nexus:
+	@mvn versions:set -DnewVersion=$(timestamp) versions:commit
+	@mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Prelease-into-sonatype-nexus
 	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
