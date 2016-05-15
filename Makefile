@@ -1,4 +1,5 @@
 # https://www.gnu.org/prep/standards/html_node/Makefile-Basics.html#Makefile-Basics
+# http://clarkgrubb.com/makefile-style-guide
 SHELL = /bin/sh
 
 .PHONY: all
