@@ -186,7 +186,7 @@
   <dependencyManagement/>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                            DEPENDENCY MANAGEMENT                        -->
+  <!--                                DEPENDENCIES                             -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Dependencies -->
   <dependencies/>
