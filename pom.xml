@@ -149,8 +149,8 @@
     </site>
     <snapshotRepository>
       <!-- http://central.sonatype.org/pages/apache-maven.html -->
-      <id>sonatype-nexus-staging</id>
-      <url>${nexus-url}</url>
+      <id>${staging-id}</id>
+      <url>${staging-url}</url>
     </snapshotRepository>
   </distributionManagement>
 
@@ -227,7 +227,7 @@
           <version>${version.nexus-stagig-m-p}</version>
           <configuration>
             <!-- make sure that you have an appropriate entry in your settings.xml -->
-            <serverId>sonatype-nexus-staging</serverId>
+            <serverId>${staging-id}</serverId>
             <nexusUrl>${nexus-url}</nexusUrl>
             <autoReleaseAfterClose>true</autoReleaseAfterClose>
           </configuration>

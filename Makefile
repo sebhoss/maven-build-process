@@ -40,4 +40,6 @@ release:
 	# TODO: gpg-agent
 	# TODO: ssh-agent
 	# TODO: mvn batch mode
-	@mvn deploy scm:tag -Drevision=`(date +%Y.%m.%d)`
+	@mvn versions:set -DnewVersion=`(date +%Y.%m.%d)` versions:commit
+	@mvn clean deploy scm:tag
+	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
