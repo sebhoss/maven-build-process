@@ -228,7 +228,7 @@
           <configuration>
             <!-- make sure that you have an appropriate entry in your settings.xml -->
             <serverId>sonatype-nexus-staging</serverId>
-            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <nexusUrl>${nexus-url}</nexusUrl>
             <autoReleaseAfterClose>true</autoReleaseAfterClose>
           </configuration>
         </plugin>
