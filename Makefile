@@ -40,6 +40,6 @@ release-into-local-nexus:
 	# TODO: gpg-agent
 	# TODO: ssh-agent
 	# TODO: mvn batch mode
-	@mvn versions:set -DnewVersion=`(date +%Y.%m.%d)` versions:commit
-	@mvn clean deploy scm:tag -Dtag=maven-build-process-`(date +%Y.%m.%d)` -DpushChanges=false -DskipLocalStaging=true
+	@mvn versions:set -DnewVersion=`(date +%Y.%m.%d-%H%M%S)` versions:commit
+	@mvn clean deploy scm:tag -Dtag=maven-build-process-`(date +%Y.%m.%d-%H%M%S)` -DpushChanges=false -DskipLocalStaging=true
 	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
