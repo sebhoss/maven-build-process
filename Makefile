@@ -50,5 +50,5 @@ release-into-local-nexus:
 .PHONY: release-into-sonatype-nexus
 release-into-sonatype-nexus:
 	@mvn versions:set -DnewVersion=$(timestamp) versions:commit
-	@mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Drelease=sonatype
+	@mvn clean gpg:sign deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Drelease=sonatype
 	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
