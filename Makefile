@@ -23,7 +23,7 @@ display-dependency-updates:
 
 .PHONY: display-plugin-updates
 display-plugin-updates:
-	@mvn versions:display-plugin-updates -U
+	@mvn versions:display-plugin-updates -U -pl maven-parents -amd
 
 .PHONY: display-property-updates
 display-property-updates:
