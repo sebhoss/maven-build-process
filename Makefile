@@ -19,7 +19,7 @@ help:
 
 .PHONY: display-dependency-updates
 display-dependency-updates:
-	@mvn versions:display-dependency-updates -U
+	@mvn versions:display-dependency-updates -U -pl maven-boms -amd
 
 .PHONY: display-plugin-updates
 display-plugin-updates:
