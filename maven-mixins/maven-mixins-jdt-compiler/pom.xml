@@ -17,7 +17,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
-    <groupId>de.xn__ho_hia.maven</groupId>
+    <groupId>de.xn--ho-hia.maven</groupId>
     <artifactId>maven-mixins</artifactId>
     <version>0.0.0-SNAPSHOT</version>
   </parent>
@@ -106,7 +106,7 @@
                 <attachToTest>false</attachToTest>
                 <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#resourceBundles -->
                 <resourceBundles>
-                  <resourceBundle>de.xn__ho_hia.maven:maven-resources-jdt-settings:${project.version}</resourceBundle>
+                  <resourceBundle>de.xn--ho-hia.maven:maven-resources-jdt-settings:${project.version}</resourceBundle>
                 </resourceBundles>
                 <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/process-mojo.html#outputDirectory -->
                 <outputDirectory>${project.basedir}/.settings</outputDirectory>

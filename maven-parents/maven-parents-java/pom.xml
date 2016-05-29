@@ -17,7 +17,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
-    <groupId>de.xn__ho_hia.maven.parents</groupId>
+    <groupId>de.xn--ho-hia.maven.parents</groupId>
     <artifactId>maven-parents</artifactId>
     <version>0.0.0-SNAPSHOT</version>
   </parent>
@@ -90,7 +90,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>de.xn__ho_hia.maven.boms</groupId>
+        <groupId>de.xn--ho-hia.maven.boms</groupId>
         <artifactId>maven-boms-all</artifactId>
         <version>0.0.0-SNAPSHOT</version>
         <type>pom</type>
@@ -336,10 +336,10 @@
             <mutationThreshold>${pit.mutationCoverage}</mutationThreshold>
             <skip>${skipTests}</skip>
             <targetClasses>
-              <param>de.xn__ho_hia*</param>
+              <param>de.xn--ho-hia*</param>
             </targetClasses>
             <targetTests>
-              <param>de.xn__ho_hia*</param>
+              <param>de.xn--ho-hia*</param>
             </targetTests>
           </configuration>
           <executions>
