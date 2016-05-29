@@ -44,11 +44,11 @@ timestamp := $(shell /bin/date "+%Y.%m.%d-%H%M%S")
 .PHONY: release-into-local-nexus
 release-into-local-nexus:
 	@mvn versions:set -DnewVersion=$(timestamp) versions:commit
-	@mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -DskipLocalStaging=true
+	@mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -DskipLocalStaging=true -Drelease=local
 	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
 
 .PHONY: release-into-sonatype-nexus
 release-into-sonatype-nexus:
 	@mvn versions:set -DnewVersion=$(timestamp) versions:commit
-	@mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Prelease-into-sonatype-nexus
+	@mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Drelease=sonatype
 	@mvn versions:set -DnewVersion=0.0.0-SNAPSHOT versions:commit
