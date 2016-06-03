@@ -245,6 +245,7 @@
             <!-- https://maven.apache.org/plugins/maven-pmd-plugin/pmd-mojo.html#targetJdk -->
             <targetJdk>${version.jdk}</targetJdk>
             <!-- https://maven.apache.org/plugins/maven-pmd-plugin/check-mojo.html#skip -->
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/cpd-check-mojo.html#skip -->
             <skip>${pmd.skip}</skip>
           </configuration>
           <executions>
