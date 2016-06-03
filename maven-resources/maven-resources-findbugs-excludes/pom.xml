@@ -10,13 +10,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- ordering follows https://maven.apache.org/developers/conventions/code.html#POM_Code_Convention -->
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                                 PARENT                                  -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
-    <groupId>de.xn--ho-hia.maven</groupId>
-    <artifactId>maven-build-process</artifactId>
+    <groupId>de.xn--ho-hia.maven.resources</groupId>
+    <artifactId>maven-resources</artifactId>
     <version>0.0.0-SNAPSHOT</version>
   </parent>
 
@@ -24,26 +26,14 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
-  <groupId>de.xn--ho-hia.maven.resources</groupId>
-  <artifactId>maven-resources</artifactId>
+  <artifactId>maven-resources-findbugs-excludes</artifactId>
   <packaging>pom</packaging>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#More_Project_Information -->
-  <name>Maven Resources</name>
-  <description>Aggregator project for all resources used during a Maven build</description>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                 MODULES                                 -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Aggregation -->
-  <modules>
-    <module>maven-resources-jdt-settings</module>
-    <module>maven-resources-cc0-license</module>
-    <module>maven-resources-pmd-rules</module>
-    <module>maven-resources-findbugs-excludes</module>
-  </modules>
+  <name>Maven Resources :: FindBugs Excludes</name>
+  <description>Resource bundle containing FindBugs exclusion filters</description>
 
 </project>
