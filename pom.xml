@@ -134,7 +134,7 @@
   <!-- https://maven.apache.org/pom.html#Continuous_Integration_Management -->
   <ciManagement>
     <system>Travis-CI</system>
-    <url>https://travis-ci.org/${project.organization.name}/${project.artifactId}</url>
+    <url>https://travis-ci.org/sebhoss/${project.artifactId}</url>
   </ciManagement>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
