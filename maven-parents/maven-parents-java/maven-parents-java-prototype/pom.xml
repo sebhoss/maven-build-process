@@ -41,8 +41,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <jacoco.lineCoverage>0.00000</jacoco.lineCoverage>
-    <pit.mutationCoverage>0</pit.mutationCoverage>
+    <jacoco.skip>true</jacoco.skip>
+    <pit.skip>true</pit.skip>
     <pmd.skip>true</pmd.skip>
     <findbugs.skip>true</findbugs.skip>
     <failBuildOnDuplicates>false</failBuildOnDuplicates>

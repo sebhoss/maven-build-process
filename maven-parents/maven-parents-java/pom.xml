@@ -52,8 +52,10 @@
     <version.jdk>1.8</version.jdk>
 
     <jacoco.lineCoverage>1.00000</jacoco.lineCoverage>
+    <jacoco.skip>false</jacoco.skip>
     <pit.mutationCoverage>100</pit.mutationCoverage>
     <pit.threads>8</pit.threads>
+    <pit.skip>false</pit.skip>
     <pmd.minimumTokens>50</pmd.minimumTokens>
     <pmd.failurePriority>0</pmd.failurePriority>
     <pmd.skip>false</pmd.skip>
@@ -265,6 +267,9 @@
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
           <version>${version.jacoco-m-p}</version>
+          <configuration>
+            <skip>${jacoco.skip}</skip>
+          </configuration>
           <executions>
             <execution>
               <id>prepare-coverage-agent</id>
@@ -337,7 +342,7 @@
           <configuration>
             <threads>${pit.threads}</threads>
             <mutationThreshold>${pit.mutationCoverage}</mutationThreshold>
-            <skip>${skipTests}</skip>
+            <skip>${pit.skip}</skip>
             <targetClasses>
               <param>de.xn--ho-hia*</param>
             </targetClasses>
