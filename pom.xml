@@ -125,7 +125,7 @@
   <!-- https://maven.apache.org/pom.html#Issue_Management -->
   <issueManagement>
     <system>GitHub</system>
-    <url>${project.url}/issues</url>
+    <url>https://github.com/sebhoss/maven-build-process/issues</url>
   </issueManagement>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
