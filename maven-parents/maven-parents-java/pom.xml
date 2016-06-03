@@ -177,11 +177,13 @@
             <target>${version.jdk}</target>
             <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerId -->
             <compilerId>jdt</compilerId>
-            <!-- https://eclipse.org/tycho/sitedocs/tycho-compiler-plugin/compile-mojo.html#useProjectSettings -->
-            <useProjectSettings>true</useProjectSettings>
-            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerArgument -->
-            <!-- https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javac.html -->
-            <compilerArgument>-parameters</compilerArgument>
+            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerArgs -->
+            <compilerArgs>
+              <!-- https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javac.html -->
+              <arg>-parameters</arg>
+              <!-- https://wiki.eclipse.org/Tycho/FAQ#How_to_configure_warning.2Ferror_settings_of_the_OSGi_compiler.3F -->
+              <arg>-properties ${project.basedir}/.settings/org.eclipse.jdt.core.prefs</arg>
+            </compilerArgs>
           </configuration>
           <dependencies>
             <!-- This dependency provides the implementation of compiler "jdt" -->
