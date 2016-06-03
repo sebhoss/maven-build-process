@@ -340,12 +340,17 @@
           <artifactId>pitest-maven</artifactId>
           <version>${version.pittest-m-p}</version>
           <configuration>
+            <!-- http://pitest.org/quickstart/maven/#threads -->
             <threads>${pit.threads}</threads>
+            <!-- http://pitest.org/quickstart/maven/#mutationthreshold -->
             <mutationThreshold>${pit.mutationCoverage}</mutationThreshold>
+            <!-- http://pitest.org/quickstart/maven/#skip -->
             <skip>${pit.skip}</skip>
+            <!-- http://pitest.org/quickstart/maven/#targetclasses -->
             <targetClasses>
               <param>de.xn--ho-hia*</param>
             </targetClasses>
+            <!-- http://pitest.org/quickstart/maven/#targettests -->
             <targetTests>
               <param>de.xn--ho-hia*</param>
             </targetTests>
@@ -353,6 +358,7 @@
           <executions>
             <execution>
               <goals>
+                <!-- http://pitest.org/quickstart/maven/#mutationcoverage-goal -->
                 <goal>mutationCoverage</goal>
               </goals>
               <phase>verify</phase>
