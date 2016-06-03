@@ -41,7 +41,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Organization -->
   <organization>
-    <name>sebhoss</name>
+    <name>metio.wtf</name>
+    <url>http://metio.wtf/</url>
   </organization>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
