@@ -33,7 +33,7 @@
   <!-- https://maven.apache.org/pom.html#More_Project_Information -->
   <name>Maven Build Process</name>
   <description>Resources &amp; configuration for the Maven based build process used by Sebastian Hoß</description>
-  <url>http://seb.hoß.de/maven-build-process</url>
+  <url>http://seb.xn--ho-hia.de/maven-build-process</url>
   <inceptionYear>2016</inceptionYear>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -66,7 +66,7 @@
       <id>sebhoss</id>
       <name>Sebastian Hoß</name>
       <email>mail@shoss.de</email>
-      <url>http://seb.hoß.de/</url>
+      <url>http://seb.xn--ho-hia.de/</url>
       <roles>
         <role>Developer</role>
       </roles>
@@ -145,7 +145,7 @@
     <site>
       <id>github</id>
       <name>GitHub Pages</name>
-      <url>http://seb.hoß.de/maven-build-process/</url>
+      <url>http://seb.xn--ho-hia.de/maven-build-process/</url>
     </site>
     <snapshotRepository>
       <!-- http://central.sonatype.org/pages/apache-maven.html -->
