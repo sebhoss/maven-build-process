@@ -45,7 +45,7 @@
     <version.supress-warnings>4.0.0-SNAPSHOT</version.supress-warnings>
     <version.fiscal-year>[2.0.0,3.0.0)</version.fiscal-year>
     <version.datasets>[1.0.0,2.0.0)</version.datasets>
-    <version.reguloj>[3.0.0,4.0.0)</version.reguloj>
+    <version.reguloj>[4.0.0,5.0.0)</version.reguloj>
     <version.generic-types>[1.0.0,2.0.0)</version.generic-types>
     <version.storage-units>[2.0.0,3.0.0)</version.storage-units>
     <version.finj>[2.0.0,3.0.0)</version.finj>
@@ -84,7 +84,7 @@
         <version>${version.datasets}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss</groupId>
+        <groupId>de.xn--ho-hia.business</groupId>
         <artifactId>reguloj</artifactId>
         <version>${version.reguloj}</version>
       </dependency>
