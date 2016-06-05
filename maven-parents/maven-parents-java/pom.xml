@@ -179,13 +179,13 @@
             <target>${version.jdk}</target>
             <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerId -->
             <compilerId>jdt</compilerId>
-            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerArgs -->
-            <compilerArgs>
+            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerArguments -->
+            <compilerArguments>
               <!-- https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javac.html -->
-              <arg>-parameters</arg>
+              <parameters />
               <!-- https://wiki.eclipse.org/Tycho/FAQ#How_to_configure_warning.2Ferror_settings_of_the_OSGi_compiler.3F -->
-              <arg>-properties ${project.basedir}/.settings/org.eclipse.jdt.core.prefs</arg>
-            </compilerArgs>
+              <properties>${project.basedir}/.settings/org.eclipse.jdt.core.prefs</properties>
+            </compilerArguments>
           </configuration>
           <dependencies>
             <!-- This dependency provides the implementation of compiler "jdt" -->
