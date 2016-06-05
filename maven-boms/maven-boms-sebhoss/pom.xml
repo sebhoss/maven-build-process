@@ -41,7 +41,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.null-analysis>[2.0.0,3.0.0)</version.null-analysis>
+    <version.null-analysis>[3.0.0,4.0.0)</version.null-analysis>
     <version.supress-warnings>4.0.0-SNAPSHOT</version.supress-warnings>
     <version.fiscal-year>[2.0.0,3.0.0)</version.fiscal-year>
     <version.datasets>[1.0.0,2.0.0)</version.datasets>
@@ -63,7 +63,7 @@
     <dependencies>
       <!-- Java Projects -->
       <dependency>
-        <groupId>com.github.sebhoss</groupId>
+        <groupId>de.xn--ho-hia.quality</groupId>
         <artifactId>null-analysis</artifactId>
         <version>${version.null-analysis}</version>
       </dependency>
