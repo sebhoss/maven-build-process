@@ -10,7 +10,7 @@ node {
     def timestamp = readFile("TIMESTAMP")
 
     try {
-        wrap([$class: "ConfigFileBuildWrapper", managedFiles: [[fileId: "5b2469a4-b601-41f5-9ee8-4158696fb575", targetLocation: "settings.xml", variable: ""]]]) {
+        wrap([$class: "ConfigFileBuildWrapper", managedFiles: [[fileId: "5b2469a4-b601-41f5-9ee8-4158696fb575", targetLocation: "settings.xml"]]]) {
             stage "Versioning"
             sh "${mvnHome}/bin/mvn  -s settings.xml versions:set -DgenerateBackupPoms=false -DnewVersion=${timestamp}"
 
