@@ -366,11 +366,11 @@
             <skip>${pit.skip}</skip>
             <!-- http://pitest.org/quickstart/maven/#targetclasses -->
             <targetClasses>
-              <param>de.xn--ho-hia*</param>
+              <param>de.xn__ho_hia*</param>
             </targetClasses>
             <!-- http://pitest.org/quickstart/maven/#targettests -->
             <targetTests>
-              <param>de.xn--ho-hia*</param>
+              <param>de.xn__ho_hia*</param>
             </targetTests>
           </configuration>
           <executions>
