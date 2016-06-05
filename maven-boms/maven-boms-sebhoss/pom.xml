@@ -68,7 +68,7 @@
         <version>${version.null-analysis}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn--ho-hia.utils.jdt</groupId>
+        <groupId>de.xn--ho-hia.quality</groupId>
         <artifactId>suppress-warnings</artifactId>
         <version>${version.supress-warnings}</version>
         <scope>provided</scope>
