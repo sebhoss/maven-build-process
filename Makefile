@@ -80,5 +80,5 @@ release-into-local-nexus: ##@release Releases all artifacts into a local nexus
 release-into-sonatype-nexus: ##@release Releases all artifacts into Maven Central (through Sonatype OSSRH)
 	mvn versions:set -DnewVersion=$(timestamp) -DgenerateBackupPoms=false
 	mvn clean gpg:sign deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Drelease=sonatype
-	git push --tags
+	git push --tags origin
 	-mvn versions:set -DnewVersion=0.0.0-SNAPSHOT -DgenerateBackupPoms=false
