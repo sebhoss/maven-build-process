@@ -45,39 +45,40 @@ HELP_FUN = \
     }; \
     print "\n"; }
 
-help: ##@other Show this help.
+help: ##@other Show this help
 	@perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)
 
 .PHONY: display-dependency-updates
-display-dependency-updates: ## This message will show up when typing 'make help'
+display-dependency-updates: ##@maintenance Display dependency updates in 'maven-boms'
 	@mvn versions:display-dependency-updates -U -pl maven-boms -amd
 
 .PHONY: display-plugin-updates
-display-plugin-updates: ## and another message
+display-plugin-updates: ##@maintenance Display plugin updates in 'maven-parents'
 	@mvn versions:display-plugin-updates -U -pl maven-parents -amd
 
 .PHONY: display-property-updates
-display-property-updates: ## the third message
+display-property-updates: ##@maintenance Display property updates in all modules
 	@mvn versions:display-property-updates -U
 
 .PHONY: sonar-analysis
-sonar-analysis:
+sonar-analysis: ##@maintenance Performs Sonarqube analysis
 	# http://docs.sonarqube.org/display/SONAR/Analyzing+with+SonarQube+Scanner+for+Maven
 	@mvn clean install
 	@mvn sonar:sonar -Dsonar.host.url=http://localhost:59000
 
 .PHONY: sign-waiver
-sign-waiver:
+sign-waiver: ##@one-time Signs the WAIVER
 	@gpg2 --no-version --armor --sign AUTHORS/WAIVER
 
 .PHONY: release-into-local-nexus
-release-into-local-nexus:
+release-into-local-nexus: ##@release Releases all artifacts into a local nexus
 	mvn versions:set -DnewVersion=$(timestamp) -DgenerateBackupPoms=false
 	mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -DskipLocalStaging=true -Drelease=local
 	-mvn versions:set -DnewVersion=0.0.0-SNAPSHOT -DgenerateBackupPoms=false
 
 .PHONY: release-into-sonatype-nexus
-release-into-sonatype-nexus:
+release-into-sonatype-nexus: ##@release Releases all artifacts into Maven Central (through Sonatype OSSRH)
 	mvn versions:set -DnewVersion=$(timestamp) -DgenerateBackupPoms=false
 	mvn clean gpg:sign deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Drelease=sonatype
+	git push --tags
 	-mvn versions:set -DnewVersion=0.0.0-SNAPSHOT -DgenerateBackupPoms=false
