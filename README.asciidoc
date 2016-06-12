@@ -10,7 +10,7 @@ image:https://www.openhub.net/p/{project-name}/widgets/project_thin_badge.gif["O
 image:https://img.shields.io/travis/{github-org}/{project-name}/master.svg?style=flat-square["Build Status", link="https://travis-ci.org/{github-org}/{project-name}"]
 image:https://img.shields.io/badge/irc-%23metio.wtf-green.svg?style=flat-square["Chat on IRC", link="http://webchat.freenode.net/?channels=metio.wtf"]
 
-Bunch of POMs that help setting up a Mavenfootnote:[http://maven.apache.org/] based build process.
+Bunch of POMs that help setting up a link:http://maven.apache.org/[Maven] based build process.
 
 == License
 
