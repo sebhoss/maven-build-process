@@ -48,7 +48,7 @@
     <version.dbunit>2.5.2</version.dbunit>
     <version.fest-assert-core>2.0M10</version.fest-assert-core>
     <version.assertj-core>3.4.1</version.assertj-core>
-    <version.equalsverifier>2.1</version.equalsverifier>
+    <version.equalsverifier>2.1.1</version.equalsverifier>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
