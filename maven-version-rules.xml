@@ -19,8 +19,7 @@
   <rules>
     <rule groupId="org.postgresql" artifactId="postgresql">
       <ignoreVersions>
-        <ignoreVersion>9.4.1208.jre7</ignoreVersion>
-        <ignoreVersion>9.4.1208.jre6</ignoreVersion>
+        <ignoreVersion>.*jre.*</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="javax.enterprise" artifactId="cdi-api">
