@@ -64,7 +64,7 @@ display-property-updates: ##@maintenance Display property updates in all modules
 sonar-analysis: ##@maintenance Performs Sonarqube analysis
 	# http://docs.sonarqube.org/display/SONAR/Analyzing+with+SonarQube+Scanner+for+Maven
 	@mvn clean install
-	@mvn sonar:sonar -Dsonar.host.url=http://localhost:59000
+	@mvn sonar:sonar -Dsonar.host.url=http://localhost:59000 -Dsonar.pitest.mode=reuseReport
 
 .PHONY: sign-waiver
 sign-waiver: ##@one-time Signs the WAIVER
