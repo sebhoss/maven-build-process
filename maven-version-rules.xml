@@ -1,0 +1,23 @@
+<ruleset comparisonMethod="maven"
+         xmlns="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 http://mojo.codehaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
+  <ignoreVersions>
+    <ignoreVersion type="regex">.*Alpha.*</ignoreVersion>
+    <ignoreVersion type="regex">.*-beta.*</ignoreVersion>
+    <ignoreVersion type="regex">.*-b.*</ignoreVersion>
+    <ignoreVersion type="regex">.*-rc.*</ignoreVersion>
+  </ignoreVersions>
+  <rules>
+    <rule groupId="org.postgresql" artifactId="postgresql">
+      <ignoreVersions>
+        <ignoreVersion>9.4.1208.jre7</ignoreVersion>
+        <ignoreVersion>9.4.1208.jre6</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="javax.enterprise" artifactId="cdi-api">
+      <ignoreVersions>
+        <ignoreVersion>2.0-EDR1</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+  </rules>
+</ruleset>
