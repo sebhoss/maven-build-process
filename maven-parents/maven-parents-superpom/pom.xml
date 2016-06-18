@@ -19,7 +19,7 @@
   <parent>
     <groupId>de.xn--ho-hia.maven.parents</groupId>
     <artifactId>maven-parents</artifactId>
-    <version>0.0.0-SNAPSHOT</version>
+    <version>9999.99.99-SNAPSHOT</version>
   </parent>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
