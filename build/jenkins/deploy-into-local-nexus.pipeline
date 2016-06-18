@@ -3,7 +3,7 @@ node {
     checkout scm
 
     stage "Tooling"
-    def mvnHome = tool "maven-3.3.9"
+    def mvnHome = tool "latest-maven"
 
     stage "Timestamp"
     sh 'date "+%Y.%m.%d-%H%M%S" > TIMESTAMP'
