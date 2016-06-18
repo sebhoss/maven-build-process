@@ -16,6 +16,21 @@ Sebastian Hoß <http://seb.xn--ho-hia.de/[@sebhoss]>
 
 Bunch of POMs that help setting up a link:http://maven.apache.org/[Maven] based build process.
 
+== Usage
+
+Inherit from one of the parents like this:
+
+[source, xml]
+----
+  <parent>
+    <groupId>de.xn--ho-hia.maven.parents</groupId>
+    <artifactId>maven-parents-java-stable</artifactId>
+    <version>${version.parent}</version>
+  </parent>
+----
+
+Specify SCM, Issue Management, CI Management, and Distribution Management sections of your POM.
+
 == License
 
 To the extent possible under law, the author(s) have dedicated all copyright
