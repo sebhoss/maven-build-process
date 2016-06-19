@@ -74,11 +74,11 @@ sign-waiver: ##@one-time Signs the WAIVER
 release-into-local-nexus: ##@release Releases all artifacts into a local nexus
 	mvn versions:set -DnewVersion=$(timestamp) -DgenerateBackupPoms=false
 	mvn clean deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -DskipLocalStaging=true -Drelease=local
-	-mvn versions:set -DnewVersion=0.0.0-SNAPSHOT -DgenerateBackupPoms=false
+	-mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
 
 .PHONY: release-into-sonatype-nexus
 release-into-sonatype-nexus: ##@release Releases all artifacts into Maven Central (through Sonatype OSSRH)
 	mvn versions:set -DnewVersion=$(timestamp) -DgenerateBackupPoms=false
 	mvn clean gpg:sign deploy scm:tag -Dtag=maven-build-process-$(timestamp) -DpushChanges=false -Drelease=sonatype
 	git push --tags origin master
-	-mvn versions:set -DnewVersion=0.0.0-SNAPSHOT -DgenerateBackupPoms=false
+	-mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
