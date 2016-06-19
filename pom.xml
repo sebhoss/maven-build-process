@@ -112,7 +112,6 @@
     <module>maven-boms</module>
     <!-- <module>maven-extensions</module> -->
     <module>maven-parents</module>
-    <!-- <module>maven-plugins</module> -->
     <!-- <module>maven-archetypes</module> -->
     <!-- <module>maven-mixins</module> -->
   </modules>
