@@ -94,7 +94,7 @@
         <version>${version.generic-types}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss</groupId>
+        <groupId>de.xn__ho_hia.utils.storage_units</groupId>
         <artifactId>storage-units</artifactId>
         <version>${version.storage-units}</version>
       </dependency>
