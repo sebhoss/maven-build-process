@@ -12,6 +12,7 @@
          xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 http://mojo.codehaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
   <ignoreVersions>
     <ignoreVersion type="regex">.*Alpha.*</ignoreVersion>
+    <ignoreVersion type="regex">.*ALPHA.*</ignoreVersion>
     <ignoreVersion type="regex">.*-beta.*</ignoreVersion>
     <ignoreVersion type="regex">.*-b.*</ignoreVersion>
     <ignoreVersion type="regex">.*-rc.*</ignoreVersion>
@@ -19,7 +20,7 @@
   <rules>
     <rule groupId="org.postgresql" artifactId="postgresql">
       <ignoreVersions>
-        <ignoreVersion>.*jre.*</ignoreVersion>
+        <ignoreVersion type="regex">.*jre.*</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="javax.enterprise" artifactId="cdi-api">
