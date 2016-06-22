@@ -60,6 +60,10 @@ display-plugin-updates: ##@maintenance Display plugin updates in 'maven-parents'
 display-property-updates: ##@maintenance Display property updates in all modules
 	@mvn versions:display-property-updates -U
 
+.PHONY: update-properties
+update-properties: ##@maintenance Updates all properties to their latest versions
+	@mvn versions:update-properties -U -DgenerateBackupPoms=false
+
 .PHONY: sonar-analysis
 sonar-analysis: ##@maintenance Performs Sonarqube analysis
 	# http://docs.sonarqube.org/display/SONAR/Analyzing+with+SonarQube+Scanner+for+Maven
