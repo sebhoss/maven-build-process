@@ -47,6 +47,14 @@ all: help
 help: ##@other Show this help
 	@perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)
 
+.PHONY: install
+install: ##@hacking Install all artifacts into local repository
+	mvn clean install
+
+.PHONY: test
+test: ##@hacking Run all tests
+	mvn test
+
 .PHONY: display-dependency-updates
 display-dependency-updates: ##@maintenance Display dependency updates in 'maven-boms'
 	mvn versions:display-dependency-updates -U -pl maven-boms -amd
