@@ -69,6 +69,10 @@ sonar-analysis: ##@sebhoss Perform Sonarqube analysis
 	mvn clean install
 	mvn sonar:sonar -Dsonar.host.url=http://localhost:59000 -Dsonar.pitest.mode=reuseReport
 
+.PHONY: docker-verify
+docker-verify:  ##@docker Verify project in pre-defined build environment
+	docker-compose -f build/docker/build-environment.yml run --rm --user=$(UID) build
+
 .PHONY: sign-waiver
 sign-waiver: ##@contributing Sign the WAIVER
 	gpg2 --no-version --armor --sign AUTHORS/WAIVER
