@@ -57,29 +57,42 @@ test: ##@hacking Run all tests
 
 .PHONY: display-dependency-updates
 display-dependency-updates: ##@maintenance Display dependency updates in 'maven-boms'
-	mvn versions:display-dependency-updates -U -pl maven-boms -amd
+	mvn versions:display-dependency-updates \
+	   --update-snapshots \
+	   --projects maven-boms \
+	   --also-make-dependents
 
 .PHONY: display-plugin-updates
 display-plugin-updates: ##@maintenance Display plugin updates in 'maven-parents'
-	mvn versions:display-plugin-updates -U -pl maven-parents -amd
+	mvn versions:display-plugin-updates \
+	   --update-snapshots \
+	   --projects maven-parents \
+	   --also-make-dependents
 
 .PHONY: display-property-updates
 display-property-updates: ##@maintenance Display property updates in all modules
-	mvn versions:display-property-updates -U
+	mvn versions:display-property-updates \
+	   --update-snapshots
 
 .PHONY: update-properties
 update-properties: ##@maintenance Update all properties to their latest versions
-	mvn versions:update-properties -U -DgenerateBackupPoms=false
+	mvn versions:update-properties \
+	   --update-snapshots \
+	   -DgenerateBackupPoms=false
 
 .PHONY: sonar-analysis
 sonar-analysis: ##@sebhoss Perform Sonarqube analysis
 	# http://docs.sonarqube.org/display/SONAR/Analyzing+with+SonarQube+Scanner+for+Maven
 	mvn clean install
-	mvn sonar:sonar -Dsonar.host.url=http://localhost:59000 -Dsonar.pitest.mode=reuseReport
+	mvn sonar:sonar \
+	   -Dsonar.host.url=http://localhost:59000 \
+	   -Dsonar.pitest.mode=reuseReport
 
 .PHONY: docker-verify
 docker-verify:  ##@docker Verify project in pre-defined build environment
-	docker-compose -f build/docker/build-environment.yml run --rm --user=$(UID) build
+	docker-compose \
+	   -f build/docker/build-environment.yml \
+	   run --rm --user=$(UID) build
 
 .PHONY: sign-waiver
 sign-waiver: ##@contributing Sign the WAIVER
@@ -88,13 +101,28 @@ sign-waiver: ##@contributing Sign the WAIVER
 
 .PHONY: release-into-local-nexus
 release-into-local-nexus: ##@release Release all artifacts into a local nexus
-	mvn versions:set -DnewVersion=$(TIMESTAMPED_VERSION) -DgenerateBackupPoms=false
-	mvn clean deploy scm:tag -DpushChanges=false -DskipLocalStaging=true -Drelease=local
-	+mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
+	mvn versions:set \
+	   -DnewVersion=$(TIMESTAMPED_VERSION) \
+	   -DgenerateBackupPoms=false
+	mvn clean deploy scm:tag \
+	   -DpushChanges=false \
+	   -DskipLocalStaging=true \
+	   -Drelease=local
+	+mvn versions:set \
+	   -DnewVersion=9999.99.99-SNAPSHOT \
+	   -DgenerateBackupPoms=false
 
 .PHONY: release-into-sonatype-nexus
 release-into-sonatype-nexus: ##@release Release all artifacts into Maven Central (through Sonatype OSSRH)
-	mvn versions:set -DnewVersion=$(TIMESTAMPED_VERSION) -DgenerateBackupPoms=false
-	mvn clean gpg:sign deploy scm:tag -DpushChanges=false -Drelease=sonatype
-	git push --tags origin master
-	+mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
+	mvn versions:set \
+	   -DnewVersion=$(TIMESTAMPED_VERSION) \
+	   -DgenerateBackupPoms=false
+	mvn clean gpg:sign deploy scm:tag \
+	   -DpushChanges=false \
+	   -Drelease=sonatype
+	git push \
+	   --tags \
+	   origin master
+	+mvn versions:set \
+	   -DnewVersion=9999.99.99-SNAPSHOT \
+	   -DgenerateBackupPoms=false
