@@ -16,23 +16,14 @@ SHELL = /bin/sh
 # INTERNAL VARIABLES #
 ######################
 timestamp := $(shell /bin/date "+%Y.%m.%d-%H%M%S")
-
-###############
-# GOALS/RULES #
-###############
-
-.PHONY: all
-all: help
-
-#COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
 WHITE  := $(shell tput -Txterm setaf 7)
 YELLOW := $(shell tput -Txterm setaf 3)
 RESET  := $(shell tput -Txterm sgr0)
 
-# Add the following 'help' target to your Makefile
-# And add help text after each target name starting with '\#\#'
-# A category can be added with @category
+######################
+# INTERNAL FUNCTIONS #
+######################
 HELP_FUN = \
     %help; \
     while(<>) { push @{$$help{$$2 // 'targets'}}, [$$1, $$3] if /^([a-zA-Z\-]+)\s*:.*\#\#(?:@([a-zA-Z\-]+))?\s(.*)$$/ }; \
@@ -45,44 +36,50 @@ HELP_FUN = \
     }; \
     print "\n"; }
 
+###############
+# GOALS/RULES #
+###############
+.PHONY: all
+all: help
+
 help: ##@other Show this help
 	@perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)
 
 .PHONY: display-dependency-updates
 display-dependency-updates: ##@maintenance Display dependency updates in 'maven-boms'
-	@mvn versions:display-dependency-updates -U -pl maven-boms -amd
+	mvn versions:display-dependency-updates -U -pl maven-boms -amd
 
 .PHONY: display-plugin-updates
 display-plugin-updates: ##@maintenance Display plugin updates in 'maven-parents'
-	@mvn versions:display-plugin-updates -U -pl maven-parents -amd
+	mvn versions:display-plugin-updates -U -pl maven-parents -amd
 
 .PHONY: display-property-updates
 display-property-updates: ##@maintenance Display property updates in all modules
-	@mvn versions:display-property-updates -U
+	mvn versions:display-property-updates -U
 
 .PHONY: update-properties
-update-properties: ##@maintenance Updates all properties to their latest versions
-	@mvn versions:update-properties -U -DgenerateBackupPoms=false
+update-properties: ##@maintenance Update all properties to their latest versions
+	mvn versions:update-properties -U -DgenerateBackupPoms=false
 
 .PHONY: sonar-analysis
-sonar-analysis: ##@maintenance Performs Sonarqube analysis
+sonar-analysis: ##@sebhoss Perform Sonarqube analysis
 	# http://docs.sonarqube.org/display/SONAR/Analyzing+with+SonarQube+Scanner+for+Maven
-	@mvn clean install
-	@mvn sonar:sonar -Dsonar.host.url=http://localhost:59000 -Dsonar.pitest.mode=reuseReport
+	mvn clean install
+	mvn sonar:sonar -Dsonar.host.url=http://localhost:59000 -Dsonar.pitest.mode=reuseReport
 
 .PHONY: sign-waiver
-sign-waiver: ##@one-time Signs the WAIVER
-	@gpg2 --no-version --armor --sign AUTHORS/WAIVER
+sign-waiver: ##@contributing Sign the WAIVER
+	gpg2 --no-version --armor --sign AUTHORS/WAIVER
 
 .PHONY: release-into-local-nexus
-release-into-local-nexus: ##@release Releases all artifacts into a local nexus
+release-into-local-nexus: ##@release Release all artifacts into a local nexus
 	mvn versions:set -DnewVersion=$(timestamp) -DgenerateBackupPoms=false
 	mvn clean deploy scm:tag -DpushChanges=false -DskipLocalStaging=true -Drelease=local
-	-mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
+	+mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
 
 .PHONY: release-into-sonatype-nexus
-release-into-sonatype-nexus: ##@release Releases all artifacts into Maven Central (through Sonatype OSSRH)
+release-into-sonatype-nexus: ##@release Release all artifacts into Maven Central (through Sonatype OSSRH)
 	mvn versions:set -DnewVersion=$(timestamp) -DgenerateBackupPoms=false
 	mvn clean gpg:sign deploy scm:tag -DpushChanges=false -Drelease=sonatype
 	git push --tags origin master
-	-mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
+	+mvn versions:set -DnewVersion=9999.99.99-SNAPSHOT -DgenerateBackupPoms=false
