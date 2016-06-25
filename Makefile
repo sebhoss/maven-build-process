@@ -90,10 +90,18 @@ sonar-analysis: ##@sebhoss Perform Sonarqube analysis
 	   -Dsonar.pitest.mode=reuseReport
 
 .PHONY: docker-verify
-docker-verify:  ##@docker Verify project in pre-defined build environment
+docker-verify: create-build-environment ##@docker Verify project in pre-defined build environment
 	docker-compose \
 	   -f build/docker/build-environment.yml \
-	   run --rm --user=$(USERID) build
+	   run --rm verify-project
+
+# see https://github.com/docker/docker/issues/10324 for NEXUS_HOST trick
+.PHONY: create-build-environment
+create-build-environment: ##@docker Creates a pre-defined build environment
+	NEXUS_HOST=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' local-nexus` \
+	   docker-compose \
+	   -f build/docker/build-environment.yml \
+	   build maven-build-environment
 
 .PHONY: sign-waiver
 sign-waiver: ##@contributing Sign the WAIVER

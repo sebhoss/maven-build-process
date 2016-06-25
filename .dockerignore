@@ -1,0 +1,8 @@
+.project
+.gitignore
+.travis.yml
+.LICENSE
+*.asciidoc
+.ansible-*
+.settings/
+AUTHORS/
