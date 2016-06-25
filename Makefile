@@ -18,6 +18,7 @@ SHELL = /bin/sh
 TIMESTAMPED_VERSION := $(shell /bin/date "+%Y.%m.%d-%H%M%S")
 CURRENT_DATE := $(shell /bin/date "+%Y-%m-%d")
 USERNAME := $(shell id -u -n)
+USERID := $(shell id -u)
 GREEN  := $(shell tput -Txterm setaf 2)
 WHITE  := $(shell tput -Txterm setaf 7)
 YELLOW := $(shell tput -Txterm setaf 3)
@@ -92,7 +93,7 @@ sonar-analysis: ##@sebhoss Perform Sonarqube analysis
 docker-verify:  ##@docker Verify project in pre-defined build environment
 	docker-compose \
 	   -f build/docker/build-environment.yml \
-	   run --rm --user=$(UID) build
+	   run --rm --user=$(USERID) build
 
 .PHONY: sign-waiver
 sign-waiver: ##@contributing Sign the WAIVER
