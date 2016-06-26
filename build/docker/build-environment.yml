@@ -8,6 +8,7 @@
 version: '2'
 
 services:
+  # see https://hub.docker.com/r/sebhoss/maven-build-environment/
   maven-build-environment:
     build:
       context: "../../"
