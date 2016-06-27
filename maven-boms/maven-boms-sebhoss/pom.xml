@@ -41,9 +41,9 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.null-analysis>3.0.0</version.null-analysis>
-    <version.supress-warnings>4.0.0-20160619211629</version.supress-warnings>
-    <version.fiscal-year>2.0.0</version.fiscal-year>
+    <version.null-analysis>[3.0.0,4.0.0)</version.null-analysis>
+    <version.supress-warnings>[4.0.0,5.0.0)</version.supress-warnings>
+    <version.fiscal-year>[2.0.0,3.0.0)</version.fiscal-year>
     <version.datasets>1.0.2</version.datasets>
     <version.reguloj>[4.0.0,5.0.0)</version.reguloj>
     <version.generic-types>1.0.0</version.generic-types>
