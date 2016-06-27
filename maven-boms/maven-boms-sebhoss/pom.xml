@@ -46,7 +46,7 @@
     <version.fiscal-year>[2.0.0,3.0.0)</version.fiscal-year>
     <version.datasets>1.0.2</version.datasets>
     <version.reguloj>[4.0.0,5.0.0)</version.reguloj>
-    <version.generic-types>1.0.0</version.generic-types>
+    <version.generic-types>[2.0.0,3.0.0)</version.generic-types>
     <version.storage-units>[2.0.0,3.0.0)</version.storage-units>
     <version.finj>2.0.0</version.finj>
     <version.bc-clj>1.0.1</version.bc-clj>
@@ -89,7 +89,7 @@
         <version>${version.reguloj}</version>
       </dependency>
       <dependency>
-        <groupId>com.github.sebhoss.utils</groupId>
+        <groupId>de.xn__ho_hia.utils.types</groupId>
         <artifactId>generic-types</artifactId>
         <version>${version.generic-types}</version>
       </dependency>
