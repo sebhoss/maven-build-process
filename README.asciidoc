@@ -6,7 +6,7 @@ Sebastian Hoß <http://seb.xn--ho-hia.de/[@sebhoss]>
 
 ++++
 <div class="paragraph">
-<p><span class="image"><a class="image" href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/license-cc%20zero-000000.svg" alt="CC Zero"></a></span>
+<p><span class="image"><a class="image" href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/license-cc%20zero-000000.svg?style=flat-square" alt="CC Zero"></a></span>
 <span class="image"><a class="image" href="https://maven-badges.herokuapp.com/maven-central/de.xn--ho-hia.maven/maven-build-process"><img src="https://img.shields.io/maven-central/v/de.xn--ho-hia.maven/maven-build-process.svg?style=flat-square" alt="Maven Central"></a></span>
 <span class="image"><a class="image" href="https://www.openhub.net/p/maven-build-process"><img src="https://www.openhub.net/p/maven-build-process/widgets/project_thin_badge.gif" alt="Open Hub statistics"></a></span>
 <span class="image"><a class="image" href="https://travis-ci.org/sebhoss/maven-build-process"><img src="https://img.shields.io/travis/sebhoss/maven-build-process/master.svg?style=flat-square" alt="Build Status"></a></span>
