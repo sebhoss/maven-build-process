@@ -17,8 +17,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
-    <groupId>de.xn--ho-hia.maven</groupId>
-    <artifactId>maven-build-process</artifactId>
+    <groupId>de.xn--ho-hia.maven.boms</groupId>
+    <artifactId>maven-boms</artifactId>
     <version>9999.99.99-SNAPSHOT</version>
   </parent>
 
@@ -26,42 +26,47 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
-  <groupId>de.xn--ho-hia.maven.boms</groupId>
-  <artifactId>maven-boms</artifactId>
+  <artifactId>maven-boms-karaf</artifactId>
   <packaging>pom</packaging>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#More_Project_Information -->
-  <name>Maven BOMs</name>
-  <description>Aggregator project for all Maven based BOMs</description>
+  <name>Maven BOMs :: Karaf</name>
+  <description>Apache Karaf related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                 MODULES                                 -->
+  <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Aggregation -->
-  <modules>
-    <module>maven-boms-aspect</module>
-    <module>maven-boms-bytecode</module>
-    <module>maven-boms-camel</module>
-    <module>maven-boms-database</module>
-    <module>maven-boms-google</module>
-    <module>maven-boms-eclipse</module>
-    <module>maven-boms-javax</module>
-    <module>maven-boms-json</module>
-    <module>maven-boms-karaf</module>
-    <module>maven-boms-maven</module>
-    <module>maven-boms-pax</module>
-    <module>maven-boms-scripting</module>
-    <module>maven-boms-sebhoss</module>
-    <module>maven-boms-square</module>
-    <module>maven-boms-testing</module>
-    <module>maven-boms-wikitext</module>
-    <module>maven-boms-yaml</module>
+  <!-- https://maven.apache.org/pom.html#Properties -->
+  <properties>
+    <version.karaf>4.0.5</version.karaf>
+    <version.scheduler>3.0.7</version.scheduler>
+    <version.decanter>1.1.0</version.decanter>
+  </properties>
 
-    <!-- includes all of the above + more -->
-    <module>maven-boms-all</module>
-  </modules>
-
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                            DEPENDENCY MANAGEMENT                        -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Dependency_Management -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.karaf</groupId>
+        <artifactId>karaf</artifactId>
+        <version>${version.karaf}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.karaf</groupId>
+        <artifactId>scheduler</artifactId>
+        <version>${version.scheduler}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.karaf</groupId>
+        <artifactId>decanter</artifactId>
+        <version>${version.decanter}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
