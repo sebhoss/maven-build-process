@@ -78,7 +78,7 @@
     <version.findbugs-m-p>3.0.3</version.findbugs-m-p>
     <version.pittest-m-p>1.1.10</version.pittest-m-p>
     <version.duplicate-finder-m-p>1.2.1</version.duplicate-finder-m-p>
-    <version.coveralls-m-p>4.1.0</version.coveralls-m-p>
+    <version.coveralls-m-p>4.2.0</version.coveralls-m-p>
     <version.jacoco-m-p>0.7.7.201606060606</version.jacoco-m-p>
     <version.m-surefire-report-p>2.19.1</version.m-surefire-report-p>
     <version.dependency-check-m>1.4.0</version.dependency-check-m>
@@ -322,6 +322,16 @@
               </configuration>
             </execution>
           </executions>
+        </plugin>
+
+        <plugin>
+          <!-- https://github.com/trautonen/coveralls-maven-plugin -->
+          <groupId>org.eluder.coveralls</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>${version.coveralls-m-p}</version>
+          <configuration>
+            <repoToken>${COVERALLS_TOKEN}</repoToken>
+          </configuration>
         </plugin>
 
         <plugin>
