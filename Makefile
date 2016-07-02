@@ -115,11 +115,11 @@ release-into-local-nexus: ##@release Release all artifacts into a local nexus
 	mvn versions:set \
 	   -DnewVersion=$(TIMESTAMPED_VERSION) \
 	   -DgenerateBackupPoms=false
-	mvn clean deploy scm:tag \
+	-mvn clean deploy scm:tag \
 	   -DpushChanges=false \
 	   -DskipLocalStaging=true \
 	   -Drelease=local
-	+mvn versions:set \
+	mvn versions:set \
 	   -DnewVersion=9999.99.99-SNAPSHOT \
 	   -DgenerateBackupPoms=false
 
@@ -128,12 +128,12 @@ release-into-sonatype-nexus: ##@release Release all artifacts into Maven Central
 	mvn versions:set \
 	   -DnewVersion=$(TIMESTAMPED_VERSION) \
 	   -DgenerateBackupPoms=false
-	mvn clean gpg:sign deploy scm:tag \
+	-mvn clean gpg:sign deploy scm:tag \
 	   -DpushChanges=false \
 	   -Drelease=sonatype
-	git push \
+	-git push \
 	   --tags \
 	   origin master
-	+mvn versions:set \
+	mvn versions:set \
 	   -DnewVersion=9999.99.99-SNAPSHOT \
 	   -DgenerateBackupPoms=false
