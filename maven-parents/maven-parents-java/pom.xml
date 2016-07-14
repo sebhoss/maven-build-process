@@ -383,7 +383,8 @@
               <param>de.xn__ho_hia*</param>
             </targetTests>
             <outputFormats>
-              <outputFormat>XML</outputFormat>  
+              <outputFormat>XML</outputFormat>
+              <outputFormat>HTML</outputFormat>
             </outputFormats>
           </configuration>
           <executions>
