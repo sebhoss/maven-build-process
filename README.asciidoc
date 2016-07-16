@@ -43,7 +43,8 @@ with this software. If not, see http://creativecommons.org/publicdomain/zero/1.0
 
 == Mirrors
 
-* https://github.com/sebhoss/maven-build-process
-* https://bitbucket.org/sebhoss/maven-build-process
-* https://gitlab.com/sebastian.hoss/maven-build-process
-* http://repo.or.cz/maven-build-process.git
+* https://github.com/sebhoss/{project-name}
+* https://bitbucket.org/sebhoss/{project-name}
+* https://gitlab.com/sebastian.hoss/{project-name}
+* http://v2.pikacode.com/sebhoss/{project-name}
+* http://repo.or.cz/{project-name}.git
