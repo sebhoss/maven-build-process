@@ -55,14 +55,6 @@
   <!-- https://maven.apache.org/pom.html#Dependency_Management -->
   <dependencyManagement>
     <dependencies>
-      <!-- JSR 303 -->
-      <!-- https://jcp.org/en/jsr/detail?id=330 -->
-      <dependency>
-        <groupId>javax.inject</groupId>
-        <artifactId>javax.inject</artifactId>
-        <version>${version.inject}</version>
-      </dependency>
-
       <!-- JSR 299 -->
       <!-- https://jcp.org/en/jsr/detail?id=299 -->
       <dependency>
@@ -71,20 +63,20 @@
         <version>${version.cdi-api}</version>
       </dependency>
 
-      <!-- JSR 318 (Interceptors) -->
+      <!-- JSR 303 -->
+      <!-- https://jcp.org/en/jsr/detail?id=330 -->
+      <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>${version.inject}</version>
+      </dependency>
+
+      <!-- JSR 318 -->
       <!-- https://jcp.org/en/jsr/detail?id=318 -->
       <dependency>
         <groupId>javax.interceptor</groupId>
         <artifactId>javax.interceptor-api</artifactId>
         <version>${version.interceptor-api}</version>
-      </dependency>
-
-      <!-- JSR 907 -->
-      <!-- https://jcp.org/en/jsr/detail?id=907 -->
-      <dependency>
-        <groupId>javax.transaction</groupId>
-        <artifactId>jta</artifactId>
-        <version>${version.jta}</version>
       </dependency>
 
       <!-- JSR 341 -->
@@ -98,6 +90,14 @@
         <groupId>org.glassfish</groupId>
         <artifactId>javax.el</artifactId>
         <version>${version.glassfish.javax.el}</version>
+      </dependency>
+
+      <!-- JSR 907 -->
+      <!-- https://jcp.org/en/jsr/detail?id=907 -->
+      <dependency>
+        <groupId>javax.transaction</groupId>
+        <artifactId>jta</artifactId>
+        <version>${version.jta}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
