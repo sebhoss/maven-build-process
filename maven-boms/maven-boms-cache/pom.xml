@@ -17,8 +17,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Inheritance -->
   <parent>
-    <groupId>de.xn--ho-hia.maven</groupId>
-    <artifactId>maven-build-process</artifactId>
+    <groupId>de.xn--ho-hia.maven.boms</groupId>
+    <artifactId>maven-boms</artifactId>
     <version>9999.99.99-SNAPSHOT</version>
   </parent>
 
@@ -26,43 +26,47 @@
   <!--                               COORDINATES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Maven_Coordinates -->
-  <groupId>de.xn--ho-hia.maven.boms</groupId>
-  <artifactId>maven-boms</artifactId>
+  <artifactId>maven-boms-cache</artifactId>
   <packaging>pom</packaging>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#More_Project_Information -->
-  <name>Maven BOMs</name>
-  <description>Aggregator project for all Maven based BOMs</description>
+  <name>Maven BOMs :: Camel</name>
+  <description>Apache Camel related dependencies</description>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--                                 MODULES                                 -->
+  <!--                                PROPERTIES                               -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- https://maven.apache.org/pom.html#Aggregation -->
-  <modules>
-    <module>maven-boms-aspect</module>
-    <module>maven-boms-bytecode</module>
-    <module>maven-boms-cache</module>
-    <module>maven-boms-camel</module>
-    <module>maven-boms-database</module>
-    <module>maven-boms-google</module>
-    <module>maven-boms-eclipse</module>
-    <module>maven-boms-javax</module>
-    <module>maven-boms-json</module>
-    <module>maven-boms-karaf</module>
-    <module>maven-boms-maven</module>
-    <module>maven-boms-pax</module>
-    <module>maven-boms-scripting</module>
-    <module>maven-boms-sebhoss</module>
-    <module>maven-boms-square</module>
-    <module>maven-boms-testing</module>
-    <module>maven-boms-wikitext</module>
-    <module>maven-boms-yaml</module>
+  <!-- https://maven.apache.org/pom.html#Properties -->
+  <properties>
+    <version.caffeine>2.3.1</version.caffeine>
+    <version.ehcache>3.1.1</version.ehcache>
+  </properties>
 
-    <!-- includes all of the above + more -->
-    <module>maven-boms-all</module>
-  </modules>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                            DEPENDENCY MANAGEMENT                        -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- https://maven.apache.org/pom.html#Dependency_Management -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- Caffeine -->
+      <!-- https://github.com/ben-manes/caffeine -->
+      <dependency>
+        <groupId>com.github.ben-manes.caffeine</groupId>
+        <artifactId>caffeine</artifactId>
+        <version>${version.caffeine}</version>
+      </dependency>
+
+      <!-- EhCache -->
+      <!-- http://www.ehcache.org/ -->
+      <dependency>
+        <groupId>org.ehcache</groupId>
+        <artifactId>ehcache</artifactId>
+        <version>${version.ehcache}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
