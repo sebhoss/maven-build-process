@@ -41,7 +41,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.spring>4.3.0.RELEASE</version.spring>
+    <version.spring>4.3.1.RELEASE</version.spring>
     <version.spring.integration>4.3.0.RELEASE</version.spring.integration>
     <version.swarmic>1.0.0.Alpha1</version.swarmic>
   </properties>

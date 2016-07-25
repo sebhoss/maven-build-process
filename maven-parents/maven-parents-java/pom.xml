@@ -75,7 +75,7 @@
     <version.m-compiler-p>3.5.1</version.m-compiler-p>
     <version.m-source-p>3.0.1</version.m-source-p>
     <version.bnd-m-p>3.2.0</version.bnd-m-p>
-    <version.findbugs-m-p>3.0.3</version.findbugs-m-p>
+    <version.findbugs-m-p>3.0.4</version.findbugs-m-p>
     <version.pittest-m-p>1.1.10</version.pittest-m-p>
     <version.duplicate-finder-m-p>1.2.1</version.duplicate-finder-m-p>
     <version.coveralls-m-p>4.2.0</version.coveralls-m-p>
