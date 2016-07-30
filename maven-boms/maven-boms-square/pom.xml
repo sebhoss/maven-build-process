@@ -43,6 +43,7 @@
   <properties>
     <version.okhttp>2.7.5</version.okhttp>
     <version.javapoet>1.7.0</version.javapoet>
+    <version.retrofit>2.1.0</version.retrofit>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -100,6 +101,14 @@
         <groupId>com.squareup</groupId>
         <artifactId>javapoet</artifactId>
         <version>${version.javapoet}</version>
+      </dependency>
+
+      <!-- Retrofit -->
+      <!-- http://square.github.io/retrofit/ -->
+      <dependency>
+        <groupId>com.squareup.retrofit2</groupId>
+        <artifactId>retrofit</artifactId>
+        <version>${version.retrofit}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
