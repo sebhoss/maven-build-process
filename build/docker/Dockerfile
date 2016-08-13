@@ -2,6 +2,7 @@ FROM maven:3.3.9-jdk-8
 MAINTAINER Sebastian Hoß (mail@shoss.de)
 
 # TODO: https://github.com/docker/hub-feedback/issues/292
+# TODO: https://github.com/docker/hub-feedback/issues/403
 
 RUN mkdir -p /code && \
     mkdir -p /config && \
