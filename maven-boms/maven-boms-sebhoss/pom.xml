@@ -48,6 +48,7 @@
     <version.reguloj>[4.0.0,5.0.0)</version.reguloj>
     <version.generic-types>[2.0.0,3.0.0)</version.generic-types>
     <version.storage-units>[4.0.0,5.0.0)</version.storage-units>
+    <version.memoization>[2.0.0,3.0.0)</version.memoization>
     <version.finj>2.0.0</version.finj>
     <version.bc-clj>1.0.1</version.bc-clj>
     <version.math-clj>1.0.0</version.math-clj>
@@ -93,11 +94,9 @@
         <artifactId>generic-types</artifactId>
         <version>${version.generic-types}</version>
       </dependency>
-      <dependency>
-        <groupId>de.xn--ho-hia.storage_units</groupId>
-        <artifactId>storage-units.java</artifactId>
-        <version>${version.storage-units}</version>
-      </dependency>
+
+      <!-- storage-units.java -->
+      <!-- https://github.com/sebhoss/storage-units -->
       <dependency>
         <groupId>de.xn--ho-hia.storage_units</groupId>
         <artifactId>storage-units</artifactId>
@@ -117,6 +116,29 @@
         <groupId>de.xn--ho-hia.storage_units</groupId>
         <artifactId>storage-units-mongodb</artifactId>
         <version>${version.storage-units}</version>
+      </dependency>
+
+      <!-- memoization.java -->
+      <!-- https://github.com/sebhoss/memoization.java -->
+      <dependency>
+        <groupId>de.xn--ho-hia.memoization</groupId>
+        <artifactId>memoization-core</artifactId>
+        <version>${version.memoization}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.memoization</groupId>
+        <artifactId>memoization-caffeine</artifactId>
+        <version>${version.memoization}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.memoization</groupId>
+        <artifactId>memoization-guava</artifactId>
+        <version>${version.memoization}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.memoization</groupId>
+        <artifactId>memoization-jcache</artifactId>
+        <version>${version.memoization}</version>
       </dependency>
 
       <!-- Clojure Projects -->
