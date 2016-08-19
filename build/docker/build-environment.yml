@@ -12,7 +12,7 @@ services:
   maven-build-environment:
     build:
       context: "../../"
-      dockerfile: build/docker/Dockerfile
+      dockerfile: Dockerfile
       args:
         NEXUS_HOST: "${NEXUS_HOST}"
     image: sebhoss/maven-build-environment
