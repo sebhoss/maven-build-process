@@ -6,3 +6,4 @@
 .ansible-*
 .settings/
 AUTHORS/
+target/
