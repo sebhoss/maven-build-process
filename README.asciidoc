@@ -55,12 +55,21 @@ services:
     volumes:
       - "./:/project"
     working_dir: /workspace
-    command: bash -c "cp -af /project/. . && mvn clean verify -Dmaven.repo.local=/repository"
+    command: bash -c "cp -af /project/. . && mvn clean verify -s /config/local-nexus-mirror.xml -Dmaven.repo.local=/repository"
     networks:
       - nexus
+networks:
+  nexus:
+    external:
+      name: nexus_default
 ----
 
-Execute this by calling `docker-compose run --rm verify-project`. Executing builds directly inside the `/project` directory will most likely cause a permission problem on the host system. Therefore the above `docker-compose.yml` file copies the project source into the `/workspace` directory first. The `--rm` option makes sure that everything gets cleaned up nicely once execution is finished. Specify a *container_name* in case you want to easily reference the running container. 
+Execute this by calling `docker-compose run --rm verify-project`. Executing builds directly inside the `/project` directory will most likely cause a permission problem on the host system. Therefore the above `docker-compose.yml` file copies the project source into the `/workspace` directory first. The `--rm` option makes sure that everything gets cleaned up nicely once execution is finished. Specify a *container_name* in case you want to easily reference the running container. The container includes two predefined Maven settings files:
+
+* google-mirror.xml (https://maven-central.storage.googleapis.com)
+* local-nexus-mirror.xml (http://local-nexus:8081/content/groups/public/)
+
+Use them together with docker networks like in the above example to run your builds against different Maven repositories. The local `/repository` directory already includes _some_ artifacts. Re-use it in order to cut down on build time.
 
 == License
 
