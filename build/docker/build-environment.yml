@@ -21,10 +21,8 @@ services:
       - maven-build-environment
     volumes:
       - "../../:/project"
-    working_dir: /project
-    external_links:
-      - local-nexus:nexus
-    command: mvn clean verify -s /config/settings.xml -Dmaven.repo.local=/repository
+    working_dir: /workspace
+    command: bash -c "cp -af /project/. /workspace/ && mvn clean verify -s /config/local-nexus-mirror.xml -Dmaven.repo.local=/repository"
     networks:
       - nexus
       - sonarqube

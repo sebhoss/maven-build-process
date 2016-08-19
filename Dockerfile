@@ -1,4 +1,4 @@
-FROM maven:3.3.9-jdk-8
+FROM maven:3.3.9-jdk-8-alpine
 MAINTAINER Sebastian Hoß (mail@shoss.de)
 
 # TODO: https://github.com/docker/hub-feedback/issues/292
@@ -7,7 +7,8 @@ MAINTAINER Sebastian Hoß (mail@shoss.de)
 RUN mkdir -p /mbp && \
     mkdir -p /config && \
     mkdir -p /repository && \
-    mkdir -p /project
+    mkdir -p /project && \
+    mkdir -p /workspace
 
 VOLUME /project
 
