@@ -47,7 +47,7 @@
     <version.datasets>1.0.2</version.datasets>
     <version.reguloj>[4.0.0,5.0.0)</version.reguloj>
     <version.generic-types>[2.0.0,3.0.0)</version.generic-types>
-    <version.storage-units>[2.0.0,3.0.0)</version.storage-units>
+    <version.storage-units>[4.0.0,5.0.0)</version.storage-units>
     <version.finj>2.0.0</version.finj>
     <version.bc-clj>1.0.1</version.bc-clj>
     <version.math-clj>1.0.0</version.math-clj>
@@ -94,8 +94,28 @@
         <version>${version.generic-types}</version>
       </dependency>
       <dependency>
-        <groupId>de.xn--ho_hia.utils.storage_units</groupId>
+        <groupId>de.xn--ho-hia.storage_units</groupId>
+        <artifactId>storage-units.java</artifactId>
+        <version>${version.storage-units}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.storage_units</groupId>
         <artifactId>storage-units</artifactId>
+        <version>${version.storage-units}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.storage_units</groupId>
+        <artifactId>storage-units-eclipselink</artifactId>
+        <version>${version.storage-units}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.storage_units</groupId>
+        <artifactId>storage-units-jackson</artifactId>
+        <version>${version.storage-units}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.storage_units</groupId>
+        <artifactId>storage-units-mongodb</artifactId>
         <version>${version.storage-units}</version>
       </dependency>
 
