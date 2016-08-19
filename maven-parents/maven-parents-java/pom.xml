@@ -83,6 +83,7 @@
     <version.m-surefire-report-p>2.19.1</version.m-surefire-report-p>
     <version.dependency-check-m>1.4.2</version.dependency-check-m>
     <version.m-dependency-p>2.10</version.m-dependency-p>
+    <version.flatten-m-p>1.0.0</version.flatten-m-p>
 
     <version.tycho-compiler-jdt>0.26.0</version.tycho-compiler-jdt>
   </properties>
@@ -445,6 +446,36 @@
               <ignoredDependency>com.github.sebhoss:suppress-warnings</ignoredDependency>
             </ignoredDependencies>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <!-- http://www.mojohaus.org/flatten-maven-plugin/ -->
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>flatten-maven-plugin</artifactId>
+          <version>${version.flatten-m-p}</version>
+          <configuration>
+            <flattenMode>oss</flattenMode>
+          </configuration>
+          <executions>
+            <execution>
+              <!-- enable flattening -->
+              <id>flatten</id>
+              <phase>process-resources</phase>
+              <goals>
+                <!-- http://www.mojohaus.org/flatten-maven-plugin/flatten-mojo.html -->
+                <goal>flatten</goal>
+              </goals>
+            </execution>
+            <execution>
+              <!-- ensure proper cleanup -->
+              <id>flatten.clean</id>
+              <phase>clean</phase>
+              <goals>
+                <!-- http://www.mojohaus.org/flatten-maven-plugin/clean-mojo.html -->
+                <goal>clean</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
