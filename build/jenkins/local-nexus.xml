@@ -14,10 +14,10 @@
       </activation>
       <properties>
         <staging-id>local-nexus</staging-id>
-        <staging-url>http://nexus:8081/content/repositories/snapshots</staging-url>
+        <staging-url>http://local-nexus:8081/content/repositories/snapshots</staging-url>
         <release-id>local-nexus</release-id>
-        <release-url>http://nexus:8081/content/repositories/releases</release-url>
-        <nexus-url>http://nexus:8081/</nexus-url>
+        <release-url>http://local-nexus:8081/content/repositories/releases</release-url>
+        <nexus-url>http://local-nexus:8081/</nexus-url>
       </properties>
       <repositories>
         <repository>
@@ -31,7 +31,7 @@
             <updatePolicy>always</updatePolicy>
             <checksumPolicy>fail</checksumPolicy>
           </snapshots>
-          <url>http://nexus:8081/content/groups/public</url>
+          <url>http://local-nexus:8081/content/groups/public</url>
           <layout>default</layout>
         </repository>
       </repositories>
@@ -41,7 +41,7 @@
     <mirror>
       <mirrorOf>*</mirrorOf>
       <name>local-nexus</name>
-      <url>http://nexus:8081/content/groups/public/</url>
+      <url>http://local-nexus:8081/content/groups/public/</url>
       <id>local-nexus</id>
     </mirror>
   </mirrors>
