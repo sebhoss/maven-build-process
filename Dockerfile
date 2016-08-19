@@ -12,7 +12,6 @@ RUN mkdir -p /mbp && \
 
 VOLUME /project
 
-COPY build/docker/nexus-mirror.xml /config/
 COPY build/docker/local-nexus-mirror.xml /config/
 COPY build/docker/google-mirror.xml /config/
 
