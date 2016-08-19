@@ -42,7 +42,7 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <version.karaf>4.0.5</version.karaf>
-    <version.scheduler>3.0.7</version.scheduler>
+    <version.scheduler>3.0.8</version.scheduler>
     <version.decanter>1.1.0</version.decanter>
   </properties>
 

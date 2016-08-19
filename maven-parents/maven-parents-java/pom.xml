@@ -81,10 +81,10 @@
     <version.coveralls-m-p>4.2.0</version.coveralls-m-p>
     <version.jacoco-m-p>0.7.7.201606060606</version.jacoco-m-p>
     <version.m-surefire-report-p>2.19.1</version.m-surefire-report-p>
-    <version.dependency-check-m>1.4.0</version.dependency-check-m>
+    <version.dependency-check-m>1.4.2</version.dependency-check-m>
     <version.m-dependency-p>2.10</version.m-dependency-p>
 
-    <version.tycho-compiler-jdt>0.25.0</version.tycho-compiler-jdt>
+    <version.tycho-compiler-jdt>0.26.0</version.tycho-compiler-jdt>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
