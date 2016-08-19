@@ -13,8 +13,6 @@ services:
     build:
       context: "../../"
       dockerfile: Dockerfile
-      args:
-        NEXUS_HOST: "${NEXUS_HOST}"
     image: sebhoss/maven-build-environment
   verify-project:
     image: sebhoss/maven-build-environment:latest
@@ -27,4 +25,14 @@ services:
     external_links:
       - local-nexus:nexus
     command: mvn clean verify -s /config/settings.xml -Dmaven.repo.local=/repository
-    network_mode: bridge
+    networks:
+      - nexus
+      - sonarqube
+
+networks:
+  nexus:
+    external:
+      name: nexus_nexus
+  sonarqube:
+    external:
+      name: sonarqube_sonarqube

@@ -12,9 +12,9 @@
   <mirrors>
     <mirror>
       <mirrorOf>*</mirrorOf>
-      <name>local-nexus</name>
+      <name>nexus</name>
       <url>http://nexus:8081/content/groups/public/</url>
-      <id>local-nexus</id>
+      <id>nexus</id>
     </mirror>
   </mirrors>
 </settings>
