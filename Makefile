@@ -80,7 +80,7 @@ update-properties: ##@maintenance Update all properties to their latest versions
 	mvn versions:update-properties \
 	   --update-snapshots \
 	   -DgenerateBackupPoms=false
-	git add **/**/pom.xml
+	git add pom.xml **/**/pom.xml
 	git commit -s -S -m 'Update properties to latest version'
 
 .PHONY: sonar-analysis
