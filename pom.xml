@@ -179,7 +179,7 @@
     <project.reporting.outputEncoding>${global.encoding}</project.reporting.outputEncoding>
 
     <!-- version declarations -->
-    <version.sonar-m-p>3.0.2</version.sonar-m-p>
+    <version.sonar-m-p>3.2</version.sonar-m-p>
     <version.m-gpg-p>1.6</version.m-gpg-p>
     <version.nexus-stagig-m-p>1.6.7</version.nexus-stagig-m-p>
     <version.m-enforcer-p>1.4.1</version.m-enforcer-p>

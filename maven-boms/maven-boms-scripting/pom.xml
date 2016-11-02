@@ -43,8 +43,8 @@
   <properties>
     <version.jexl>2.1.1</version.jexl>
     <version.juel>2.2.7</version.juel>
-    <version.mvel>2.2.8.Final</version.mvel>
-    <version.ognl>3.1.10</version.ognl>
+    <version.mvel>2.3.1.Final</version.mvel>
+    <version.ognl>3.1.12</version.ognl>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

@@ -41,9 +41,9 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.h2>1.4.192</version.h2>
-    <version.postgres>9.4.1209</version.postgres>
-    <version.mysql>6.0.3</version.mysql>
+    <version.h2>1.4.193</version.h2>
+    <version.postgres>9.4.1212</version.postgres>
+    <version.mysql>6.0.5</version.mysql>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
