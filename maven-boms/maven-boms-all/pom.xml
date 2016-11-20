@@ -141,6 +141,13 @@
       </dependency>
       <dependency>
         <groupId>de.xn--ho-hia.maven.boms</groupId>
+        <artifactId>maven-boms-kafka</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.maven.boms</groupId>
         <artifactId>maven-boms-karaf</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
