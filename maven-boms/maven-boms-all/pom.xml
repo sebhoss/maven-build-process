@@ -155,6 +155,13 @@
       </dependency>
       <dependency>
         <groupId>de.xn--ho-hia.maven.boms</groupId>
+        <artifactId>maven-boms-logging</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.maven.boms</groupId>
         <artifactId>maven-boms-maven</artifactId>
         <version>${project.version}</version>
         <type>pom</type>

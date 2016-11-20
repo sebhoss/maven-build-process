@@ -53,6 +53,7 @@
     <module>maven-boms-json</module>
     <module>maven-boms-kafka</module>
     <module>maven-boms-karaf</module>
+    <module>maven-boms-logging</module>
     <module>maven-boms-maven</module>
     <module>maven-boms-pax</module>
     <module>maven-boms-scripting</module>
