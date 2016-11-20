@@ -46,6 +46,7 @@
     <version.maven-annotations>3.5</version.maven-annotations>
     <version.plexus-annotations>1.7.1</version.plexus-annotations>
     <version.doxia>1.7</version.doxia>
+    <version.plexus-build-api>0.0.7</version.plexus-build-api>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -83,6 +84,12 @@
         <groupId>org.codehaus.plexus</groupId>
         <artifactId>plexus-component-annotations</artifactId>
         <version>${version.plexus-annotations}</version>
+      </dependency>
+      <!-- https://www.eclipse.org/m2e/documentation/m2e-making-maven-plugins-compat.html -->
+      <dependency>
+        <groupId>org.sonatype.plexus</groupId>
+        <artifactId>plexus-build-api</artifactId>
+        <version>${version.plexus-build-api}</version>
       </dependency>
 
       <!-- Doxia -->
