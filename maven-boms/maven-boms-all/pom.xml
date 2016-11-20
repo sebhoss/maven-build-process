@@ -197,6 +197,13 @@
       </dependency>
       <dependency>
         <groupId>de.xn--ho-hia.maven.boms</groupId>
+        <artifactId>maven-boms-xml</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.maven.boms</groupId>
         <artifactId>maven-boms-yaml</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
