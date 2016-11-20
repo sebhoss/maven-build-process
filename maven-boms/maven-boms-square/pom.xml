@@ -43,7 +43,7 @@
   <properties>
     <version.okhttp>2.7.5</version.okhttp>
     <version.okhttp3>3.4.1</version.okhttp3>
-    <version.javapoet>1.7.0</version.javapoet>
+    <version.javapoet>1.8.0</version.javapoet>
     <version.retrofit>2.1.0</version.retrofit>
   </properties>
 
