@@ -42,6 +42,7 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <version.mustache.java>0.9.4</version.mustache.java>
+    <version.jmustache>1.13</version.jmustache>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -54,6 +55,11 @@
         <groupId>com.github.spullara.mustache.java</groupId>
         <artifactId>compiler</artifactId>
         <version>${version.mustache.java}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.samskivert</groupId>
+        <artifactId>jmustache</artifactId>
+        <version>${version.jmustache}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
