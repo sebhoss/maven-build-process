@@ -42,7 +42,7 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <version.log4j>2.7</version.log4j>
-    <version.slf4j>1.7.21</version.slf4j>
+    <version.slf4j>1.7.22</version.slf4j>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

@@ -41,8 +41,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.asm>5.1</version.asm>
-    <version.byte-buddy>1.5.6</version.byte-buddy>
+    <version.asm>5.2</version.asm>
+    <version.byte-buddy>1.6.1</version.byte-buddy>
     <version.byteman>3.0.6</version.byteman>
     <version.javassist>3.22.0-CR1</version.javassist>
   </properties>
