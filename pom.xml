@@ -183,6 +183,7 @@
     <version.m-gpg-p>1.6</version.m-gpg-p>
     <version.nexus-stagig-m-p>1.6.7</version.nexus-stagig-m-p>
     <version.m-enforcer-p>1.4.1</version.m-enforcer-p>
+    <version.m-scm-p>1.9.4</version.m-scm-p>
 
     <!-- plugin settings -->
     <!-- https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#executable -->
@@ -245,7 +246,7 @@
         <plugin>
           <!-- http://maven.apache.org/scm/maven-scm-plugin/ -->
           <artifactId>maven-scm-plugin</artifactId>
-          <version>1.9.4</version>
+          <version>${version.m-scm-p}</version>
           <configuration>
             <!-- http://maven.apache.org/scm/maven-scm-plugin/tag-mojo.html#tag -->
             <tag>${project.artifactId}-${project.version}</tag>
