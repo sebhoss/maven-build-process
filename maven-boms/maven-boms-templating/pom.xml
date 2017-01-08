@@ -51,11 +51,16 @@
   <!-- https://maven.apache.org/pom.html#Dependency_Management -->
   <dependencyManagement>
     <dependencies>
+      <!-- mustache.java -->
+      <!-- https://github.com/spullara/mustache.java -->
       <dependency>
         <groupId>com.github.spullara.mustache.java</groupId>
         <artifactId>compiler</artifactId>
         <version>${version.mustache.java}</version>
       </dependency>
+
+      <!-- jmustache -->
+      <!-- https://github.com/samskivert/jmustache -->
       <dependency>
         <groupId>com.samskivert</groupId>
         <artifactId>jmustache</artifactId>
