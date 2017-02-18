@@ -141,8 +141,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Continuous_Integration_Management -->
   <ciManagement>
-    <system>Travis-CI</system>
-    <url>https://travis-ci.org/sebhoss/${project.artifactId}</url>
+    <system>Jenkins</system>
+    <url>https://build.metio.wtf/job/sebhoss/job/maven-build-process/</url>
   </ciManagement>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
