@@ -41,7 +41,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.pax.exam>4.9.2</version.pax.exam>
+    <version.pax.exam>4.10.0</version.pax.exam>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
