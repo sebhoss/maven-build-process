@@ -1,0 +1,40 @@
+node {
+    stage('Checkout') {
+        checkout scm
+    }
+
+    stage('Versioning') {
+        def timestamp = new java.text.SimpleDateFormat('yyyy.MM.dd-HHmmss').format(new Date())
+        withMaven(
+            maven: 'maven-latest',
+            mavenSettingsConfig: 'repository.metio.wtf',
+            mavenLocalRepo: '.repository') {
+            try {
+                sh "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${timestamp}"
+            } catch (exception) {
+                currentBuild.result = 'FAILURE'
+                throw exception
+            }
+        }
+    }
+
+    stage('Build & Deploy') {
+        withMaven(
+            maven: 'maven-latest',
+            mavenSettingsConfig: 'repository.metio.wtf',
+            mavenLocalRepo: '.repository') {
+            try {
+                sh "mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false"
+            } catch (exception) {
+                currentBuild.result = 'FAILURE'
+            }
+        }
+    }
+
+    stage('Cleanup') {
+        dir('.repository') {
+            deleteDir()
+        }
+    }
+
+}
