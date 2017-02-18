@@ -26,7 +26,7 @@ node {
                 mavenSettingsConfig: 'repository.metio.wtf',
                 mavenLocalRepo: '.repository') {
                 try {
-                    sh("mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false -Dpgp.secretKey=${PGP_KEY} -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'")
+                    sh("mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false -Dpgp.secretKey=keyfile:${PGP_KEY} -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'")
                 } catch (exception) {
                     currentBuild.result = 'FAILURE'
                 }
