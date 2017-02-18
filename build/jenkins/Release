@@ -4,12 +4,12 @@ node {
     }
 
     stage('Versioning') {
-        def timestamp = new java.text.SimpleDateFormat('yyyy.MM.dd-HHmmss').format(new Date())
         withMaven(
             maven: 'maven-latest',
             mavenSettingsConfig: 'repository.metio.wtf',
             mavenLocalRepo: '.repository') {
             try {
+                def timestamp = new java.text.SimpleDateFormat('yyyy.MM.dd-HHmmss').format(new Date())
                 sh "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${timestamp}"
             } catch (exception) {
                 currentBuild.result = 'FAILURE'
@@ -24,7 +24,9 @@ node {
             mavenSettingsConfig: 'repository.metio.wtf',
             mavenLocalRepo: '.repository') {
             try {
-                sh "mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false"
+                withCredentials([string(credentialsId: 'pgp.secretkey', variable: 'pgp_key'), string(credentialsId: 'pgp.passphrase', variable: 'pgp_passphrase')]) {
+                    sh "mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false -Dpgp.secretKey=${pgp_key} -Dpgp.passphrase=${pgp_passphrase}"
+                }
             } catch (exception) {
                 currentBuild.result = 'FAILURE'
             }
