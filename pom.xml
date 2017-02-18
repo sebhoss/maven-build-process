@@ -180,15 +180,19 @@
 
     <!-- version declarations -->
     <version.sonar-m-p>3.2</version.sonar-m-p>
-    <version.m-gpg-p>1.6</version.m-gpg-p>
+    <version.pgp-m-p>1.1</version.pgp-m-p>
     <version.nexus-stagig-m-p>1.6.7</version.nexus-stagig-m-p>
     <version.m-enforcer-p>1.4.1</version.m-enforcer-p>
     <version.m-scm-p>1.9.4</version.m-scm-p>
     <version.versions-m-p>2.2</version.versions-m-p>
 
     <!-- plugin settings -->
-    <!-- https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#executable -->
-    <gpg.executable>gpg2</gpg.executable>
+    <!-- http://kohsuke.org/pgp-maven-plugin/sign-mojo.html#secretkey -->
+    <pgp.secretKey></pgp.secretKey>
+    <!-- http://kohsuke.org/pgp-maven-plugin/sign-mojo.html#passphrase -->
+    <pgp.passphrase></pgp.passphrase>
+    <!-- http://kohsuke.org/pgp-maven-plugin/sign-mojo.html#skip -->
+    <pgp.skip>false</pgp.skip>
     <!-- http://sonarsource.github.io/sonar-maven/sonar-mojo.html#skip -->
     <sonar.skip>false</sonar.skip>
   </properties>
@@ -225,19 +229,21 @@
         </plugin>
 
         <plugin>
-          <!-- https://maven.apache.org/plugins/maven-gpg-plugin/ -->
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>${version.m-gpg-p}</version>
+          <!-- http://kohsuke.org/pgp-maven-plugin/ -->
+          <groupId>org.kohsuke</groupId>
+          <artifactId>pgp-maven-plugin</artifactId>
+          <version>${version.pgp-m-p}</version>
           <configuration>
-            <executable>${gpg.executable}</executable>
+            <secretkey>${pgp.secretKey}</secretkey>
+            <passphrase>${pgp.passphrase}</passphrase>
+            <skip>${pgp.skip}</skip>
           </configuration>
           <executions>
             <execution>
               <id>sign-artifacts</id>
               <phase>verify</phase>
               <goals>
-                <!-- https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html -->
+                <!-- http://kohsuke.org/pgp-maven-plugin/sign-mojo.html -->
                 <goal>sign</goal>
               </goals>
             </execution>
@@ -279,10 +285,12 @@
       </plugin>
 
       <plugin>
+        <!-- http://www.mojohaus.org/versions-maven-plugin/ -->
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
         <version>${version.versions-m-p}</version>
         <configuration>
+          <!-- http://www.mojohaus.org/versions-maven-plugin/rule.html -->
           <rulesUri>file:maven-version-rules.xml</rulesUri>
         </configuration>
       </plugin>
