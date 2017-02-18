@@ -43,6 +43,8 @@
   <properties>
     <version.log4j>2.7</version.log4j>
     <version.slf4j>1.7.22</version.slf4j>
+    <version.syslog4j>0.9.57</version.syslog4j>
+    <version.tinylog>1.2-beta-1</version.tinylog>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -77,7 +79,7 @@
       <dependency>
         <groupId>org.graylog2</groupId>
         <artifactId>syslog4j</artifactId>
-        <version>0.9.57</version>
+        <version>${version.syslog4j}</version>
       </dependency>
 
       <!-- tinylog -->
@@ -85,7 +87,7 @@
       <dependency>
         <groupId>org.tinylog</groupId>
         <artifactId>tinylog</artifactId>
-        <version>1.2-beta-1</version>
+        <version>${version.tinylog}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
