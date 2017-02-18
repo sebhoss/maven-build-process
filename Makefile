@@ -127,7 +127,7 @@ release-into-sonatype-nexus: ##@release Release all artifacts into Maven Central
 	mvn versions:set \
 	   -DnewVersion=$(TIMESTAMPED_VERSION) \
 	   -DgenerateBackupPoms=false
-	-mvn clean gpg:sign deploy scm:tag \
+	-mvn clean pgp:sign deploy scm:tag \
 	   -DpushChanges=false \
 	   -Drelease=sonatype
 	-git push \
