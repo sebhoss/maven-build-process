@@ -19,16 +19,18 @@ node {
     }
 
     stage('Build & Deploy') {
-        withMaven(
-            maven: 'maven-latest',
-            mavenSettingsConfig: 'repository.metio.wtf',
-            mavenLocalRepo: '.repository') {
-            try {
-                withCredentials([string(credentialsId: 'pgp.secretkey', variable: 'pgp_key'), string(credentialsId: 'pgp.passphrase', variable: 'pgp_passphrase')]) {
+        withCredentials([
+                string(credentialsId: 'pgp.secretkey', variable: 'pgp_key'),
+                string(credentialsId: 'pgp.passphrase', variable: 'pgp_passphrase')]) {
+            withMaven(
+                maven: 'maven-latest',
+                mavenSettingsConfig: 'repository.metio.wtf',
+                mavenLocalRepo: '.repository') {
+                try {
                     sh "mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false -Dpgp.secretKey=${pgp_key} -Dpgp.passphrase=${pgp_passphrase}"
+                } catch (exception) {
+                    currentBuild.result = 'FAILURE'
                 }
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
             }
         }
     }
