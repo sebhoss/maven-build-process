@@ -1,6 +1,9 @@
 node {
     stage('Checkout') {
         checkout scm
+        withCredentials([[$class: 'StringBinding', credentialsId: 'pgp.secretkey', variable: 'PGP_KEY']]) {
+            sh "echo $PGP_KEY"
+        }
     }
 
     stage('Versioning') {
@@ -13,21 +16,20 @@ node {
                 sh "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${timestamp}"
             } catch (exception) {
                 currentBuild.result = 'FAILURE'
-                throw exception
             }
         }
     }
 
     stage('Build & Deploy') {
         withCredentials([
-                string(credentialsId: 'pgp.secretkey', variable: 'pgp_key'),
-                string(credentialsId: 'pgp.passphrase', variable: 'pgp_passphrase')]) {
+                string(credentialsId: 'pgp.secretkey', variable: 'PGP_KEY'),
+                string(credentialsId: 'pgp.passphrase', variable: 'PGP_PASSPHRASE')]) {
             withMaven(
                 maven: 'maven-latest',
                 mavenSettingsConfig: 'repository.metio.wtf',
                 mavenLocalRepo: '.repository') {
                 try {
-                    sh "mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false -Dpgp.secretKey=$pgp_key -Dpgp.passphrase=$pgp_passphrase"
+                    sh("mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false -Dpgp.secretKey=${PGP_KEY} -Dpgp.passphrase='${PGP_PASSPHRASE}'")
                 } catch (exception) {
                     currentBuild.result = 'FAILURE'
                 }
