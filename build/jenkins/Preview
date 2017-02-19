@@ -28,7 +28,7 @@ node {
                 try {
                     sh "git config user.name 'build.metio.wtf'"
                     sh "git config user.email 'build@metio.wtf'"
-                    sh("mvn clean pgp:sign deploy scm:tag -Drelease=metio -DpushChanges=false -Dpgp.secretKey=keyfile:${PGP_KEY} -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'")
+                    sh("mvn clean pgp:sign deploy scm:tag -Drelease=metio -DpushChanges=false -DskipLocalStaging=true -Dpgp.secretKey=keyfile:${PGP_KEY} -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'")
                 } catch (exception) {
                     currentBuild.result = 'FAILURE'
                 }
