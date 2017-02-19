@@ -26,7 +26,13 @@ node {
                 mavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
             try {
-                sh "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${timestamp}"
+                sh """
+                    mvn --batch-mode \
+                        --show-version \
+                        versions:set \
+                        -DgenerateBackupPoms=false \
+                        -DnewVersion=${timestamp}
+                """
             } catch (exception) {
                 currentBuild.result = 'FAILURE'
             }
@@ -40,9 +46,9 @@ node {
                 mavenLocalRepo: "${repositoryLocation}") {
             try {
                 sh """
-                    mvn --batch-mode
-                        --show-version
-                        clean install
+                    mvn --batch-mode \
+                        --show-version \
+                        clean install \
                         -Drelease=${releaseTarget}
                 """
             } catch (exception) {
@@ -61,10 +67,10 @@ node {
                     mavenLocalRepo: "${repositoryLocation}") {
                 try {
                     sh """
-                        mvn --batch-mode
-                            --show-version
-                            pgp:sign
-                            -Dpgp.secretKey=keyfile:${PGP_KEY}
+                        mvn --batch-mode \
+                            --show-version \
+                            pgp:sign \
+                            -Dpgp.secretKey=keyfile:${PGP_KEY} \
                             -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
                     """
                 } catch (exception) {
@@ -82,8 +88,8 @@ node {
                     mavenLocalRepo: "${repositoryLocation}") {
                 try {
                     sh """
-                        mvn --batch-mode
-                            --show-version
+                        mvn --batch-mode \
+                            --show-version \
                             sonar:sonar
                     """
                 } catch (exception) {
@@ -100,9 +106,9 @@ node {
                 mavenLocalRepo: "${repositoryLocation}") {
             try {
                 sh """
-                    mvn --batch-mode
-                        --show-version
-                        scm:tag
+                    mvn --batch-mode \
+                        --show-version \
+                        scm:tag \
                         -DpushChanges=false
                 """
             } catch (exception) {
@@ -118,11 +124,11 @@ node {
                     mavenLocalRepo: "${repositoryLocation}") {
                 try {
                     sh """
-                        mvn --batch-mode
-                            --settings $MAVEN_SETTINGS
-                            --show-version
-                            deploy
-                            -Drelease=${releaseTarget}
+                        mvn --batch-mode \
+                            --settings $MAVEN_SETTINGS \
+                            --show-version \
+                            deploy \
+                            -Drelease=${releaseTarget} \
                             -DskipLocalStaging=${skipLocalStaging}
                     """
                 } catch (exception) {
