@@ -6,6 +6,12 @@ node {
     def mavenSettings = "repository.metio.wtf"
     def githubCredentials = "build-metio-wtf-github"
 
+    stage('Cleanup') {
+        dir("${repositoryLocation}") {
+            deleteDir()
+        }
+    }
+
     stage('Checkout') {
         checkout scm
     }
@@ -47,12 +53,6 @@ node {
          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "${githubCredentials}",
                             usernameVariable: 'USERNAME', passwordVariable: 'TOKEN']]) {
             sh "git push https://${TOKEN}:x-oauth-basic@github.com/${projectName}.git"
-        }
-    }
-
-    stage('Cleanup') {
-        dir("${repositoryLocation}") {
-            deleteDir()
         }
     }
 

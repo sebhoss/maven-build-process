@@ -7,6 +7,12 @@ node {
     def releaseTarget = "metio"
     def skipLocalStaging = "true"
 
+    stage('Cleanup') {
+        dir("${repositoryLocation}") {
+            deleteDir()
+        }
+    }
+
     stage('Checkout') {
         checkout scm
     }
@@ -117,12 +123,6 @@ node {
                     currentBuild.result = 'FAILURE'
                 }
             }
-        }
-    }
-
-    stage('Cleanup') {
-        dir("${repositoryLocation}") {
-            deleteDir()
         }
     }
 
