@@ -115,7 +115,7 @@ node {
                         mvn --batch-mode \
                             --settings $MAVEN_SETTINGS \
                             --show-version \
-                            deploy:deploy \
+                            nexus-staging-maven-plugin:deploy \
                             -Drelease=${releaseTarget} \
                             -DskipLocalStaging=${skipLocalStaging}
                     """
