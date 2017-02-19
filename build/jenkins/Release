@@ -20,17 +20,27 @@ node {
     stage('Build & Deploy') {
         withCredentials([
                 string(credentialsId: 'pgp.secretkey', variable: 'PGP_KEY'),
-                string(credentialsId: 'pgp.passphrase', variable: 'PGP_PASSPHRASE')]) {
-            withMaven(
-                maven: 'maven-latest',
-                mavenSettingsConfig: 'repository.metio.wtf',
-                mavenLocalRepo: '.repository') {
-                try {
-                    sh "git config user.name 'build.metio.wtf'"
-                    sh "git config user.email 'build@metio.wtf'"
-                    sh("mvn clean pgp:sign deploy scm:tag -Drelease=sonatype -DpushChanges=false -Dpgp.secretKey=keyfile:${PGP_KEY} -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'")
-                } catch (exception) {
-                    currentBuild.result = 'FAILURE'
+                string(credentialsId: 'pgp.passphrase', variable: 'PGP_PASSPHRASE'),
+                string(credentialsId: 'git.user.name', variable: 'GIT_USER'),
+                string(credentialsId: 'git.user.email', variable: 'GIT_EMAIL')]) {
+            configFileProvider([configFile(fileId: 'repository.metio.wtf', variable: 'MAVEN_SETTINGS')]) {
+                withMaven(
+                        maven: 'maven-latest',
+                        mavenLocalRepo: '.repository') {
+                    try {
+                        sh "git config user.name '${GIT_USER}'"
+                        sh "git config user.email '${GIT_EMAIL}'"
+                        sh """
+                            mvn -s $MAVEN_SETTINGS
+                                clean pgp:sign deploy scm:tag
+                                -Drelease=sonatype
+                                -DpushChanges=false
+                                -Dpgp.secretKey=keyfile:${PGP_KEY}
+                                -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
+                        """
+                    } catch (exception) {
+                        currentBuild.result = 'FAILURE'
+                    }
                 }
             }
         }
