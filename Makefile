@@ -88,7 +88,7 @@ sonar-analysis: ##@sebhoss Perform Sonarqube analysis
 	# http://docs.sonarqube.org/display/SONAR/Analyzing+with+SonarQube+Scanner+for+Maven
 	mvn clean install
 	mvn sonar:sonar \
-	   -Dsonar.host.url=http://localhost:59000 \
+	   -Dsonar.host.url=https://quality.metio.wtf/ \
 	   -Dsonar.pitest.mode=reuseReport
 
 .PHONY: docker-verify
