@@ -13,8 +13,8 @@
   <ignoreVersions>
     <ignoreVersion type="regex">(?i).*alpha.*</ignoreVersion>
     <ignoreVersion type="regex">(?i).*beta.*</ignoreVersion>
-    <ignoreVersion type="regex">.*-b.*</ignoreVersion>
-    <ignoreVersion type="regex">.*-rc.*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*-b.*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*-rc.*</ignoreVersion>
   </ignoreVersions>
   <rules>
     <rule groupId="org.postgresql" artifactId="postgresql">
