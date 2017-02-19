@@ -99,24 +99,6 @@ node {
         }
     }
 
-    stage('Tag') {
-        withMaven(
-                maven: "${mavenVersion}",
-                mavenSettingsConfig: "${mavenSettings}",
-                mavenLocalRepo: "${repositoryLocation}") {
-            try {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        scm:tag \
-                        -DpushChanges=false
-                """
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
-            }
-        }
-    }
-
     stage('Deploy') {
         configFileProvider([configFile(fileId: "${mavenSettings}", variable: 'MAVEN_SETTINGS')]) {
             withMaven(
@@ -127,7 +109,7 @@ node {
                         mvn --batch-mode \
                             --settings $MAVEN_SETTINGS \
                             --show-version \
-                            deploy \
+                            deploy:deploy \
                             -Drelease=${releaseTarget} \
                             -DskipLocalStaging=${skipLocalStaging}
                     """
