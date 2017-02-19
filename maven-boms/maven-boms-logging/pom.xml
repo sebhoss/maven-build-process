@@ -44,7 +44,7 @@
     <version.log4j>2.8</version.log4j>
     <version.slf4j>1.7.23</version.slf4j>
     <version.syslog4j>0.9.58</version.syslog4j>
-    <version.tinylog>1.2-beta-1</version.tinylog>
+    <version.tinylog>1.1</version.tinylog>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
