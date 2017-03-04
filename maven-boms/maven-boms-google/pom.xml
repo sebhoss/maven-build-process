@@ -44,7 +44,7 @@
     <version.auto-value>1.3</version.auto-value>
     <version.guava>21.0</version.guava>
     <version.guice>4.1.0</version.guice>
-    <version.truth>0.31</version.truth>
+    <version.truth>0.32</version.truth>
     <version.api>1.22.0</version.api>
   </properties>
 
