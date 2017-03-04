@@ -43,7 +43,6 @@
   <properties>
     <version.spring>4.3.6.RELEASE</version.spring>
     <version.spring.integration>4.3.7.RELEASE</version.spring.integration>
-    <version.swarmic>1.0.0.Alpha1</version.swarmic>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -64,13 +63,6 @@
         <groupId>org.springframework.integration</groupId>
         <artifactId>spring-integration-bom</artifactId>
         <version>${version.spring.integration}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.swarmic</groupId>
-        <artifactId>swarmic-bom</artifactId>
-        <version>${version.swarmic}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
