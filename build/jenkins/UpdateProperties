@@ -21,17 +21,13 @@ node {
                 maven: "${mavenVersion}",
                 mavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
-            try {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        --update-snapshots \
-                        versions:update-properties \
-                        -DgenerateBackupPoms=false
-                """
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
-            }
+            sh """
+                mvn --batch-mode \
+                    --show-version \
+                    --update-snapshots \
+                    versions:update-properties \
+                    -DgenerateBackupPoms=false
+            """
         }
     }
 
