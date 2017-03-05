@@ -22,17 +22,13 @@ node {
                 maven: "${mavenVersion}",
                 mavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
-            try {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        versions:set \
-                        -DgenerateBackupPoms=false \
-                        -DnewVersion=${timestamp}
-                """
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
-            }
+            sh """
+                mvn --batch-mode \
+                    --show-version \
+                    versions:set \
+                    -DgenerateBackupPoms=false \
+                    -DnewVersion=${timestamp}
+            """
         }
     }
 
@@ -41,16 +37,12 @@ node {
                 maven: "${mavenVersion}",
                 mavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
-            try {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        clean install \
-                        -Drelease=${releaseTarget}
-                """
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
-            }
+            sh """
+                mvn --batch-mode \
+                    --show-version \
+                    clean install \
+                    -Drelease=${releaseTarget}
+            """
         }
     }
 
@@ -62,17 +54,13 @@ node {
                     maven: "${mavenVersion}",
                     mavenSettingsConfig: "${mavenSettings}",
                     mavenLocalRepo: "${repositoryLocation}") {
-                try {
-                    sh """
-                        mvn --batch-mode \
-                            --show-version \
-                            pgp:sign \
-                            -Dpgp.secretKey=keyfile:${PGP_KEY} \
-                            -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
-                    """
-                } catch (exception) {
-                    currentBuild.result = 'FAILURE'
-                }
+                sh """
+                    mvn --batch-mode \
+                        --show-version \
+                        pgp:sign \
+                        -Dpgp.secretKey=keyfile:${PGP_KEY} \
+                        -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
+                """
             }
         }
     }
@@ -83,15 +71,11 @@ node {
                     maven: "${mavenVersion}",
                     mavenSettingsConfig: "${mavenSettings}",
                     mavenLocalRepo: "${repositoryLocation}") {
-                try {
-                    sh """
-                        mvn --batch-mode \
-                            --show-version \
-                            sonar:sonar
-                    """
-                } catch (exception) {
-                    currentBuild.result = 'FAILURE'
-                }
+                sh """
+                    mvn --batch-mode \
+                        --show-version \
+                        sonar:sonar
+                """
             }
         }
     }
@@ -101,18 +85,14 @@ node {
             withMaven(
                     maven: "${mavenVersion}",
                     mavenLocalRepo: "${repositoryLocation}") {
-                try {
-                    sh """
-                        mvn --batch-mode \
-                            --settings $MAVEN_SETTINGS \
-                            --show-version \
-                            nexus-staging-maven-plugin:deploy \
-                            -Drelease=${releaseTarget} \
-                            -DskipLocalStaging=${skipLocalStaging}
-                    """
-                } catch (exception) {
-                    currentBuild.result = 'FAILURE'
-                }
+                sh """
+                    mvn --batch-mode \
+                        --settings $MAVEN_SETTINGS \
+                        --show-version \
+                        nexus-staging:deploy \
+                        -Drelease=${releaseTarget} \
+                        -DskipLocalStaging=${skipLocalStaging}
+                """
             }
         }
     }

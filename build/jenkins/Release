@@ -19,31 +19,18 @@ node {
         checkout scm
     }
 
-    stage('Git config') {
-        withCredentials([
-                string(credentialsId: 'git.user.name', variable: 'GIT_USER'),
-                string(credentialsId: 'git.user.email', variable: 'GIT_EMAIL')]) {
-            sh "git config user.name '${GIT_USER}'"
-            sh "git config user.email '${GIT_EMAIL}'"
-        }
-    }
-
     stage('Versioning') {
         withMaven(
                 maven: "${mavenVersion}",
                 mavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
-            try {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        versions:set \
-                        -DgenerateBackupPoms=false \
-                        -DnewVersion=${timestamp}
-                """
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
-            }
+            sh """
+                mvn --batch-mode \
+                    --show-version \
+                    versions:set \
+                    -DgenerateBackupPoms=false \
+                    -DnewVersion=${timestamp}
+            """
         }
     }
 
@@ -52,15 +39,26 @@ node {
                 maven: "${mavenVersion}",
                 mavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
-            try {
+            sh """
+                mvn --batch-mode \
+                    --show-version \
+                    clean install \
+                    -Drelease=${releaseTarget}
+            """
+        }
+    }
+
+    stage('Analyze') {
+        withSonarQubeEnv('quality.metio.wtf') {
+            withMaven(
+                    maven: "${mavenVersion}",
+                    mavenSettingsConfig: "${mavenSettings}",
+                    mavenLocalRepo: "${repositoryLocation}") {
                 sh """
                     mvn --batch-mode \
                         --show-version \
-                        clean install \
-                        -Drelease=${releaseTarget}
+                        sonar:sonar
                 """
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
             }
         }
     }
@@ -73,36 +71,13 @@ node {
                     maven: "${mavenVersion}",
                     mavenSettingsConfig: "${mavenSettings}",
                     mavenLocalRepo: "${repositoryLocation}") {
-                try {
-                    sh """
-                        mvn --batch-mode \
-                            --show-version \
-                            pgp:sign \
-                            -Dpgp.secretKey=keyfile:${PGP_KEY} \
-                            -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
-                    """
-                } catch (exception) {
-                    currentBuild.result = 'FAILURE'
-                }
-            }
-        }
-    }
-
-    stage('Analyze') {
-        withSonarQubeEnv('quality.metio.wtf') {
-            withMaven(
-                    maven: "${mavenVersion}",
-                    mavenSettingsConfig: "${mavenSettings}",
-                    mavenLocalRepo: "${repositoryLocation}") {
-                try {
-                    sh """
-                        mvn --batch-mode \
-                            --show-version \
-                            sonar:sonar
-                    """
-                } catch (exception) {
-                    currentBuild.result = 'FAILURE'
-                }
+                sh """
+                    mvn --batch-mode \
+                        --show-version \
+                        pgp:sign \
+                        -Dpgp.secretKey=keyfile:${PGP_KEY} \
+                        -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
+                """
             }
         }
     }
@@ -112,18 +87,14 @@ node {
             withMaven(
                     maven: "${mavenVersion}",
                     mavenLocalRepo: "${repositoryLocation}") {
-                try {
-                    sh """
-                        mvn --batch-mode \
-                            --settings $MAVEN_SETTINGS \
-                            --show-version \
-                            nexus-staging-maven-plugin:deploy \
-                            -Drelease=${releaseTarget} \
-                            -DskipLocalStaging=${skipLocalStaging}
-                    """
-                } catch (exception) {
-                    currentBuild.result = 'FAILURE'
-                }
+                sh """
+                    mvn --batch-mode \
+                        --settings $MAVEN_SETTINGS \
+                        --show-version \
+                        nexus-staging:deploy \
+                        -Drelease=${releaseTarget} \
+                        -DskipLocalStaging=${skipLocalStaging}
+                """
             }
         }
     }
@@ -133,22 +104,23 @@ node {
                 maven: "${mavenVersion}",
                 mavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
-            try {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        scm:tag \
-                        -DpushChanges=false
-                """
-            } catch (exception) {
-                currentBuild.result = 'FAILURE'
-            }
+            sh """
+                mvn --batch-mode \
+                    --show-version \
+                    scm:tag \
+                    -DpushChanges=false
+            """
         }
     }
 
     stage('Git Push') {
-         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "${githubCredentials}",
+        withCredentials([
+                string(credentialsId: 'git.user.name', variable: 'GIT_USER'),
+                string(credentialsId: 'git.user.email', variable: 'GIT_EMAIL'),
+                [$class: 'UsernamePasswordMultiBinding', credentialsId: "${githubCredentials}",
                             usernameVariable: 'USERNAME', passwordVariable: 'TOKEN']]) {
+            sh "git config user.name '${GIT_USER}'"
+            sh "git config user.email '${GIT_EMAIL}'"
             sh "git push https://${TOKEN}:x-oauth-basic@github.com/${projectName}.git --tags"
         }
     }
