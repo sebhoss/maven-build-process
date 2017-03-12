@@ -50,18 +50,24 @@ node {
     }
 
     stage('Deploy') {
-        configFileProvider([configFile(fileId: "${mavenSettings}", variable: 'MAVEN_SETTINGS')]) {
-            withMaven(
-                    maven: "${mavenVersion}",
-                    mavenLocalRepo: "${repositoryLocation}") {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        --settings $MAVEN_SETTINGS \
-                        pgp:sign deploy \
-                        -Drelease=${releaseTarget} \
-                        -DskipLocalStaging=${skipLocalStaging}
-                """
+        withCredentials([
+                string(credentialsId: 'pgp.secretkey', variable: 'PGP_KEY'),
+                string(credentialsId: 'pgp.passphrase', variable: 'PGP_PASSPHRASE')]) {
+            configFileProvider([configFile(fileId: "${mavenSettings}", variable: 'MAVEN_SETTINGS')]) {
+                withMaven(
+                        maven: "${mavenVersion}",
+                        mavenLocalRepo: "${repositoryLocation}") {
+                    sh """
+                        mvn --batch-mode \
+                            --settings $MAVEN_SETTINGS \
+                            --show-version \
+                            pgp:sign deploy \
+                            -Drelease=${releaseTarget} \
+                            -DskipLocalStaging=${skipLocalStaging} \
+                            -Dpgp.secretKey=keyfile:${PGP_KEY} \
+                            -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
+                    """
+                }
             }
         }
     }
