@@ -34,20 +34,6 @@ node {
         }
     }
 
-    stage('Install') {
-        withMaven(
-                maven: "${mavenVersion}",
-                mavenSettingsConfig: "${mavenSettings}",
-                mavenLocalRepo: "${repositoryLocation}") {
-            sh """
-                mvn --batch-mode \
-                    --show-version \
-                    clean install \
-                    -Drelease=${releaseTarget}
-            """
-        }
-    }
-
     stage('Analyze') {
         withSonarQubeEnv('quality.metio.wtf') {
             withMaven(
@@ -63,25 +49,6 @@ node {
         }
     }
 
-    stage('Sign') {
-        withCredentials([
-                string(credentialsId: 'pgp.secretkey', variable: 'PGP_KEY'),
-                string(credentialsId: 'pgp.passphrase', variable: 'PGP_PASSPHRASE')]) {
-            withMaven(
-                    maven: "${mavenVersion}",
-                    mavenSettingsConfig: "${mavenSettings}",
-                    mavenLocalRepo: "${repositoryLocation}") {
-                sh """
-                    mvn --batch-mode \
-                        --show-version \
-                        pgp:sign \
-                        -Dpgp.secretKey=keyfile:${PGP_KEY} \
-                        -Dpgp.passphrase=literal:'${PGP_PASSPHRASE}'
-                """
-            }
-        }
-    }
-
     stage('Deploy') {
         configFileProvider([configFile(fileId: "${mavenSettings}", variable: 'MAVEN_SETTINGS')]) {
             withMaven(
@@ -89,9 +56,9 @@ node {
                     mavenLocalRepo: "${repositoryLocation}") {
                 sh """
                     mvn --batch-mode \
-                        --settings $MAVEN_SETTINGS \
                         --show-version \
-                        nexus-staging:deploy \
+                        --settings $MAVEN_SETTINGS \
+                        pgp:sign deploy \
                         -Drelease=${releaseTarget} \
                         -DskipLocalStaging=${skipLocalStaging}
                 """
