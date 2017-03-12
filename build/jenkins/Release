@@ -70,6 +70,15 @@ node {
         }
     }
 
+    stage('Git config') {
+        withCredentials([
+                string(credentialsId: 'git.user.name', variable: 'GIT_USER'),
+                string(credentialsId: 'git.user.email', variable: 'GIT_EMAIL')]) {
+            sh "git config user.name '${GIT_USER}'"
+            sh "git config user.email '${GIT_EMAIL}'"
+        }
+    }
+
     stage('Tag') {
         withMaven(
                 maven: "${mavenVersion}",
@@ -85,13 +94,8 @@ node {
     }
 
     stage('Git Push') {
-        withCredentials([
-                string(credentialsId: 'git.user.name', variable: 'GIT_USER'),
-                string(credentialsId: 'git.user.email', variable: 'GIT_EMAIL'),
-                [$class: 'UsernamePasswordMultiBinding', credentialsId: "${githubCredentials}",
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "${githubCredentials}",
                             usernameVariable: 'USERNAME', passwordVariable: 'TOKEN']]) {
-            sh "git config user.name '${GIT_USER}'"
-            sh "git config user.email '${GIT_EMAIL}'"
             sh "git push https://${TOKEN}:x-oauth-basic@github.com/${projectName}.git --tags"
         }
     }
