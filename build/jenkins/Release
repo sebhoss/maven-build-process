@@ -10,9 +10,7 @@ node {
     def githubCredentials = "build-metio-wtf-github"
 
     stage('Cleanup') {
-        dir("${repositoryLocation}") {
-            deleteDir()
-        }
+        deleteDir()
     }
 
     stage('Checkout') {

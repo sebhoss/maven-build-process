@@ -8,9 +8,7 @@ node {
     def skipLocalStaging = "true"
 
     stage('Cleanup') {
-        dir("${repositoryLocation}") {
-            deleteDir()
-        }
+        deleteDir()
     }
 
     stage('Checkout') {
