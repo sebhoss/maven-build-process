@@ -219,13 +219,22 @@
       <!-- https://maven.apache.org/pom.html#Plugins -->
       <plugins>
         <plugin>
-          <!-- http://sonarsource.github.io/sonar-maven/ -->
+          <!-- https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven -->
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
           <version>${version.sonar-m-p}</version>
           <configuration>
             <skip>${sonar.skip}</skip>
           </configuration>
+          <executions>
+            <execution>
+              <id>sonar-analysis</id>
+              <goals>
+                <goal>sonar</goal>
+              </goals>
+              <phase>verify</phase>
+            </execution>
+          </executions>
         </plugin>
 
         <plugin>

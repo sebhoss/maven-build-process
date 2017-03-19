@@ -48,6 +48,16 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
       </plugin>
+      <!-- https://maven.apache.org/plugins/maven-pmd-plugin/ -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+      </plugin>
+      <!-- https://maven.apache.org/plugins/maven-dependency-plugin/ -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
       <!-- http://eclemma.org/jacoco/trunk/doc/maven.html -->
       <plugin>
         <groupId>org.jacoco</groupId>
@@ -74,6 +84,11 @@
           <plugin>
             <groupId>org.owasp</groupId>
             <artifactId>dependency-check-maven</artifactId>
+          </plugin>
+          <!-- https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html -->
+          <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
           </plugin>
         </plugins>
       </build>

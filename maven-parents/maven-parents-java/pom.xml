@@ -78,7 +78,6 @@
     <version.findbugs-m-p>3.0.4</version.findbugs-m-p>
     <version.pittest-m-p>1.1.11</version.pittest-m-p>
     <version.duplicate-finder-m-p>1.2.1</version.duplicate-finder-m-p>
-    <version.coveralls-m-p>4.3.0</version.coveralls-m-p>
     <version.jacoco-m-p>0.7.9</version.jacoco-m-p>
     <version.m-surefire-report-p>2.19.1</version.m-surefire-report-p>
     <version.dependency-check-m>1.4.5</version.dependency-check-m>
@@ -326,16 +325,6 @@
         </plugin>
 
         <plugin>
-          <!-- https://github.com/trautonen/coveralls-maven-plugin -->
-          <groupId>org.eluder.coveralls</groupId>
-          <artifactId>coveralls-maven-plugin</artifactId>
-          <version>${version.coveralls-m-p}</version>
-          <configuration>
-            <repoToken>${COVERALLS_TOKEN}</repoToken>
-          </configuration>
-        </plugin>
-
-        <plugin>
           <!-- https://maven.apache.org/plugins/maven-remote-resources-plugin/ -->
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-remote-resources-plugin</artifactId>
@@ -361,6 +350,28 @@
               </configuration>
             </execution>
           </executions>
+        </plugin>
+
+        <plugin>
+          <!-- https://github.com/basepom/duplicate-finder-maven-plugin -->
+          <groupId>org.basepom.maven</groupId>
+          <artifactId>duplicate-finder-maven-plugin</artifactId>
+          <version>${version.duplicate-finder-m-p}</version>
+          <executions>
+            <execution>
+              <phase>verify</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <!-- https://github.com/basepom/duplicate-finder-maven-plugin/wiki#configuration-overview -->
+            <ignoredResourcePatterns>
+              <ignoredResourcePattern>.*\.html</ignoredResourcePattern>
+            </ignoredResourcePatterns>
+            <failBuildInCaseOfConflict>${failBuildOnDuplicates}</failBuildInCaseOfConflict>
+          </configuration>
         </plugin>
 
         <plugin>
