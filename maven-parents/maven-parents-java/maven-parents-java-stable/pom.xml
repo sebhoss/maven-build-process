@@ -68,6 +68,11 @@
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
       </plugin>
+      <!-- http://pitest.org/quickstart/maven/ -->
+      <plugin>
+        <groupId>org.basepom.maven</groupId>
+        <artifactId>duplicate-finder-maven-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
 
