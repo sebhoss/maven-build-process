@@ -266,6 +266,7 @@
           <configuration>
             <!-- http://maven.apache.org/scm/maven-scm-plugin/tag-mojo.html#tag -->
             <tag>${project.artifactId}-${project.version}</tag>
+            <message>[maven-scm] tag ${project.artifactId}-${project.version}</message>
           </configuration>
         </plugin>
 
