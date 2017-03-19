@@ -73,6 +73,11 @@
         <groupId>org.basepom.maven</groupId>
         <artifactId>duplicate-finder-maven-plugin</artifactId>
       </plugin>
+      <!-- https://github.com/ning/maven-dependency-versions-check-plugin -->
+      <plugin>
+        <groupId>com.ning.maven.plugins</groupId>
+        <artifactId>maven-dependency-versions-check-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
 
