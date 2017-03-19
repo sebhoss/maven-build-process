@@ -47,6 +47,7 @@
     <version.datasets>1.0.2</version.datasets>
     <version.reguloj>[4.0.0,5.0.0)</version.reguloj>
     <version.generic-types>[2.0.0,3.0.0)</version.generic-types>
+    <version.javapoet-type-guesser>(1.0.0,)</version.javapoet-type-guesser>
     <version.storage-units>[4.0.0,5.0.0)</version.storage-units>
     <version.memoization>[2.0.0,3.0.0)</version.memoization>
     <version.finj>2.0.0</version.finj>
@@ -93,6 +94,11 @@
         <groupId>de.xn--ho_hia.utils.types</groupId>
         <artifactId>generic-types</artifactId>
         <version>${version.generic-types}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.xn--ho-hia.javapoet</groupId>
+        <artifactId>javapoet-type-guesser</artifactId>
+        <version>${version.javapoet-type-guesser}</version>
       </dependency>
 
       <!-- storage-units.java -->
