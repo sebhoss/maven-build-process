@@ -41,9 +41,9 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.log4j>2.8.1</version.log4j>
-    <version.slf4j>1.7.24</version.slf4j>
-    <version.syslog4j>0.9.58</version.syslog4j>
+    <version.log4j>2.9.1</version.log4j>
+    <version.slf4j>1.7.25</version.slf4j>
+    <version.syslog4j>0.9.60</version.syslog4j>
     <version.tinylog>1.2</version.tinylog>
   </properties>
 

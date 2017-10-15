@@ -41,11 +41,11 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.auto-value>1.3</version.auto-value>
-    <version.guava>21.0</version.guava>
+    <version.auto-value>1.5.1</version.auto-value>
+    <version.guava>23.2-jre</version.guava>
     <version.guice>4.1.0</version.guice>
-    <version.truth>0.32</version.truth>
-    <version.api>1.22.0</version.api>
+    <version.truth>0.36</version.truth>
+    <version.api>1.23.0</version.api>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

@@ -42,17 +42,17 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <version.junit>4.12</version.junit>
-    <version.junit5.platform>1.0.0-M3</version.junit5.platform>
-    <version.junit5.jupiter>5.0.0-M3</version.junit5.jupiter>
-    <version.junit5.vintage>4.12.0-M3</version.junit5.vintage>
+    <version.junit5.platform>1.0.1</version.junit5.platform>
+    <version.junit5.jupiter>5.0.1</version.junit5.jupiter>
+    <version.junit5.vintage>4.12.1</version.junit5.vintage>
     <version.hamcrest-all>1.3</version.hamcrest-all>
     <version.hamcrest-core>1.3</version.hamcrest-core>
-    <version.mockito-core>2.7.13</version.mockito-core>
-    <version.dbunit>2.5.3</version.dbunit>
+    <version.mockito-core>2.11.0</version.mockito-core>
+    <version.dbunit>2.5.4</version.dbunit>
     <version.fest-assert-core>2.0M10</version.fest-assert-core>
-    <version.assertj-core>3.6.2</version.assertj-core>
-    <version.equalsverifier>2.2.1</version.equalsverifier>
-    <version.mockserver>3.10.4</version.mockserver>
+    <version.assertj-core>3.8.0</version.assertj-core>
+    <version.equalsverifier>2.3.3</version.equalsverifier>
+    <version.mockserver>3.11</version.mockserver>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
