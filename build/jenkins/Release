@@ -59,7 +59,7 @@ node {
                         mvn --batch-mode \
                             --settings $MAVEN_SETTINGS \
                             --show-version \
-                            pgp:sign deploy \
+                            org.kohsuke:pgp-maven-plugin:sign deploy \
                             -Drelease=${releaseTarget} \
                             -DskipLocalStaging=${skipLocalStaging} \
                             -Dpgp.secretKey=keyfile:${PGP_KEY} \
