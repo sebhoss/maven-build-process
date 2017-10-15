@@ -25,7 +25,7 @@
     <rule groupId="javax.enterprise" artifactId="cdi-api">
       <ignoreVersions>
         <ignoreVersion type="regex">2.0-EDR.*</ignoreVersion>
-        <ignoreVersion type="regex">2.0-PFD</ignoreVersion>
+        <ignoreVersion type="regex">2.0-PFD.*</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="javax.cache" artifactId="cache-api">
