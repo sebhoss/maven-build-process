@@ -304,12 +304,6 @@
           <rulesUri>file:maven-version-rules.xml</rulesUri>
         </configuration>
       </plugin>
-
-      <plugin>
-        <!-- http://kohsuke.org/pgp-maven-plugin/ -->
-        <groupId>org.kohsuke</groupId>
-        <artifactId>pgp-maven-plugin</artifactId>
-      </plugin>
     </plugins>
   </build>
 
