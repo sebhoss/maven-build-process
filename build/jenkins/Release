@@ -4,7 +4,7 @@ node {
     def repositoryLocation = ".repository"
     def timestamp = new java.text.SimpleDateFormat('yyyy.MM.dd-HHmmss').format(new Date())
     def mavenVersion = "maven-latest"
-    def mavenSettings = "664c0327-f394-4dc2-b9ef-a609b95f1fe4"
+    def mavenSettings = "repository.metio.wtf"
     def releaseTarget = "sonatype"
     def skipLocalStaging = "false"
     def githubCredentials = "build-metio-wtf-github"
@@ -20,7 +20,7 @@ node {
     stage('Versioning') {
         withMaven(
                 maven: "${mavenVersion}",
-                mavenSettingsConfig: "${mavenSettings}",
+                globalMavenSettingsConfig: "${mavenSettings}",
                 mavenLocalRepo: "${repositoryLocation}") {
             sh """
                 mvn --batch-mode \
@@ -36,7 +36,7 @@ node {
         withSonarQubeEnv('quality.metio.wtf') {
             withMaven(
                     maven: "${mavenVersion}",
-                    mavenSettingsConfig: "${mavenSettings}",
+                    globalMavenSettingsConfig: "${mavenSettings}",
                     mavenLocalRepo: "${repositoryLocation}") {
                 sh """
                     mvn --batch-mode \
