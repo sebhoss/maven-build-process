@@ -4,7 +4,7 @@ node {
     def repositoryLocation = ".repository"
     def timestamp = new java.text.SimpleDateFormat('yyyy.MM.dd-HHmmss').format(new Date())
     def mavenVersion = "maven-latest"
-    def mavenSettings = "repository.metio.wtf"
+    def mavenSettings = "664c0327-f394-4dc2-b9ef-a609b95f1fe4"
     def releaseTarget = "sonatype"
     def skipLocalStaging = "false"
     def githubCredentials = "build-metio-wtf-github"
