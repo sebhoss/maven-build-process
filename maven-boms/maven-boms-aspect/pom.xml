@@ -42,7 +42,7 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <version.aopalliance>1.0</version.aopalliance>
-    <version.aspectjweaver>1.8.11</version.aspectjweaver>
+    <version.aspectjweaver>1.8.12</version.aspectjweaver>
   </properties>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

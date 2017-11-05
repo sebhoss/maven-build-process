@@ -41,7 +41,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.maven>3.5.0</version.maven>
+    <version.maven>3.5.2</version.maven>
     <version.maven-annotations>3.4</version.maven-annotations>
     <version.maven-annotations>3.5</version.maven-annotations>
     <version.plexus-annotations>1.7.1</version.plexus-annotations>

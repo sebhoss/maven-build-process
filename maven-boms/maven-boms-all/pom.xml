@@ -41,7 +41,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
-    <version.spring>5.0.0.RELEASE</version.spring>
+    <version.spring>5.0.1.RELEASE</version.spring>
     <version.spring.integration>4.3.12.RELEASE</version.spring.integration>
   </properties>
 
