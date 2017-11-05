@@ -38,6 +38,11 @@
         <ignoreVersion>1.0.1B</ignoreVersion>
       </ignoreVersions>
     </rule>
+    <rule groupId="com.thoughtworks.xstream" artifactId="xstream">
+      <ignoreVersions>
+        <ignoreVersion type="regex">.*-java7</ignoreVersion>
+      </ignoreVersions>
+    </rule>
     <!-- ignore all self managed artifacts, since they use semantic versioning + a version range -->
     <rule groupId="de.xn--ho-hia.*" artifactId="*">
       <ignoreVersions>
