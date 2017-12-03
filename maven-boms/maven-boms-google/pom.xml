@@ -42,7 +42,7 @@
   <!-- https://maven.apache.org/pom.html#Properties -->
   <properties>
     <version.auto-value>1.5.2</version.auto-value>
-    <version.guava>23.3-jre</version.guava>
+    <version.guava>23.5-jre</version.guava>
     <version.guice>4.1.0</version.guice>
     <version.truth>0.36</version.truth>
     <version.api>1.23.0</version.api>
